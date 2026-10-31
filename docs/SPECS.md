@@ -21,7 +21,7 @@ Legend: **[given]** read from your files (STEP / PDFs / KiCad), **[derived]** ca
 | 12 | 470 µF / 25 V electrolytic capacitor | 3 | C1–C3 on the motor supply |
 | 13 | 5.08 mm screw terminal, 2-pole | 3 | battery, left motor, right motor |
 | 14 | M3 × 40 mm standoff + M3 screws | 4 | PCB on the chassis holes (±75, ±100 mm) |
-| 15 | Fuse 15 A + main switch **[recommended]** | 1 | in the battery lead |
+| 15 | Fuse 10 A + main switch **[recommended]** | 1 | in the battery lead (both motors jammed = 13 A) |
 | 16 | Header pins J3 (1×10), J4 (1×16), J5 (1×8), 2.54 mm | 3 | for a top PCB / add-ons |
 
 ### Sizes
@@ -42,17 +42,17 @@ Legend: **[given]** read from your files (STEP / PDFs / KiCad), **[derived]** ca
 | Supply | 3S Li-ion, 9 – 12.6 V (nominal 11.1 V) |
 | Logic | ESP32 on 5 V from the buck module; 3.3 V for the driver modules' logic |
 | Motor | 12 V DC, 300 rpm no-load, 220 rpm at 6 kgf·cm, no-load current ≤ 0.6 A **[given]** |
-| Motor stall (not in the PDF) | ≈ 6.7 A / 22.5 kgf·cm **[derived]** |
+| Motor stall (not in the PDF) | **7.5 A [given by you]** at 12 V; ≈ 25 kgf·cm **[derived]**; in the robot 6.1 – 6.5 A (pack / driver / wiring resistance) |
 | Driver | TB6612FNG ×9 in parallel: 1.2 A continuous / 3.2 A pulse per channel, R_on ≈ 0.5 Ω |
 | Channels | A = left motor, B = right motor, same signals on all 9 modules |
 | Driver capacity per motor | 1 group 3.6 A · 2 groups 7.2 A · 3 groups 10.8 A continuous |
 | Enable | STBY1–3 via slide switches SW1–SW3 (ON = 3.3 V, OFF = GND) |
 | Control pins | PWMA GPIO13, AIN1 GPIO12, AIN2 GPIO14, PWMB GPIO27, BIN1 GPIO25, BIN2 GPIO26 |
 | Top speed | 1.73 m/s **[sim]** |
-| Acceleration | 0 → 1 m/s in 0.20 s **[sim]** |
-| Spin on the spot | ≈ 270 °/s at duty ±0.5 **[sim]** |
+| Acceleration | 0 → 1 m/s in 0.18 s **[sim]** |
+| Spin on the spot | ≈ 272 °/s at duty ±0.5 **[sim]** |
 | Slope | tyres slip at ≈ 34° (μ 0.8 assumed) **[sim]** |
-| Current | cruise ≈ 0.5 A per motor; start-up spike ≈ 6 A for ~50 ms (use soft start); jammed wheel ≈ 5.7 A **[sim]** |
+| Current | cruise ≈ 0.5 A per motor; start-up spike ≈ 7 A for ~50 ms (use soft start); jammed wheel ≈ 6.1 – 6.5 A per motor, ≈ 13 A from the battery for both **[sim]** |
 | Runtime | ≈ 2 h at steady cruise on 2.8 Ah (≈ 1.4 A total) **[estimate]** |
 | Expansion | J3: 5V, 3V3, GND, BIN1, BIN2, PWMB, AIN2, AIN1, GND, PWMA · J4/J5: all usable free ESP32 pins |
 

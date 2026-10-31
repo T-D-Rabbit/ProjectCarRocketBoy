@@ -22,11 +22,14 @@ class Motor:
         self.wr = m["RPM_RATED"] * 2 * math.pi / 60
         self.Tr = m["TORQUE_RATED_KGFCM"] * 0.0980665          # N m
         self.I0 = m["I_NOLOAD"]
-        # w0 - wr = R * Tr / ke^2 and  ke = (V - I0 R)/w0   -> fixed point on R
-        R = 2.0
-        for _ in range(200):
+        if m.get("I_STALL"):                                   # stall current known: R = V / I_stall, Ke from the no-load point
+            R = self.V / m["I_STALL"]
             ke = (self.V - self.I0 * R) / self.w0
-            R = ke * ke * (self.w0 - self.wr) / self.Tr
+        else:                                                  # otherwise fit R to the rated point: w0 - wr = R Tr / ke^2
+            R = 2.0
+            for _ in range(200):
+                ke = (self.V - self.I0 * R) / self.w0
+                R = ke * ke * (self.w0 - self.wr) / self.Tr
         self.R, self.ke = R, ke
         self.Kt = ke
         self.Tf = self.Kt * self.I0                           # friction torque at the output shaft
@@ -37,7 +40,8 @@ class Motor:
         self.J_out = m["J_ROTOR"] * N * N                     # rotor inertia reflected to the output shaft
 
     def summary(self):
-        return dict(R_ohm=self.R, ke_Vs_per_rad=self.ke, I_stall_A=self.I_stall,
+        n_rated = (self.V - self.R * (self.Tr / self.Kt + self.I0)) / self.ke * 60 / (2 * math.pi)
+        return dict(rated_speed_rpm=n_rated, R_ohm=self.R, ke_Vs_per_rad=self.ke, I_stall_A=self.I_stall,
                     T_stall_Nm=self.T_stall, T_stall_kgfcm=self.T_stall / 0.0980665,
                     I_rated_A=self.I_rated, J_out=self.J_out)
 

@@ -20,8 +20,8 @@ MOTOR = dict(
     I_RATED_MAX=4.5,              # [PDF] rated current <= 4500 mA (upper bound, used only as a sanity check)
     GEAR_RATIO=60.0,              # [ASSUMED] "60K" in the model code = 1:60
     J_ROTOR=2.5e-6,               # [ASSUMED] rotor inertia kg m^2 (29 mm brushed can)
-    # stall torque / stall current rows of the datasheet table are EMPTY in the PDF ->
-    # they are derived from the rated point (see motor_fit.py)
+    I_STALL=7.5,                  # [USER] stall current 7.5 A (the stall rows of the PDF are blank). With I_STALL, R = V / I_STALL and
+                                  # Ke follows from the no-load point; the datasheet rated point (220 rpm @ 6 kgf.cm) is then only a check.
 )
 
 # ---------------------------------------------------------------- mechanical

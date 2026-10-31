@@ -5,19 +5,19 @@ static const float SLEW_PER_S = 3.0f;   // duty units per second (soft start)
 static const Step ROUTE[] = {
   {"side 1", 2000, 0.60f, 0.60f},
   {"pause", 500, 0.00f, 0.00f},
-  {"spin left 90", 377, -0.45f, 0.45f},
+  {"spin left 90", 368, -0.45f, 0.45f},
   {"settle", 800, 0.00f, 0.00f},
   {"side 2", 2000, 0.60f, 0.60f},
   {"pause", 500, 0.00f, 0.00f},
-  {"spin left 90", 377, -0.45f, 0.45f},
+  {"spin left 90", 368, -0.45f, 0.45f},
   {"settle", 800, 0.00f, 0.00f},
   {"side 3", 2000, 0.60f, 0.60f},
   {"pause", 500, 0.00f, 0.00f},
-  {"spin left 90", 377, -0.45f, 0.45f},
+  {"spin left 90", 368, -0.45f, 0.45f},
   {"settle", 800, 0.00f, 0.00f},
   {"side 4", 2000, 0.60f, 0.60f},
   {"pause", 500, 0.00f, 0.00f},
-  {"spin left 90", 377, -0.45f, 0.45f},
+  {"spin left 90", 368, -0.45f, 0.45f},
   {"settle", 800, 0.00f, 0.00f},
   {"stop", 500, 0.00f, 0.00f}
 };

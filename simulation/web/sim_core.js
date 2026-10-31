@@ -12,10 +12,13 @@ class Motor {
     this.wr = m.RPM_RATED * 2 * Math.PI / 60;
     this.Tr = m.TORQUE_RATED_KGFCM * 0.0980665;
     this.I0 = m.I_NOLOAD;
-    let R = 2.0, ke = 0;
-    for (let i = 0; i < 200; i++) {                       // w0 - wr = R Tr / ke^2 and ke = (V - I0 R) / w0
+    let R, ke;
+    if (m.I_STALL) {                                      // stall current known: R = V / I_stall, Ke from the no-load point
+      R = this.V / m.I_STALL;
       ke = (this.V - this.I0 * R) / this.w0;
-      R = ke * ke * (this.w0 - this.wr) / this.Tr;
+    } else {                                              // otherwise fit R to the rated point
+      R = 2.0; ke = 0;
+      for (let i = 0; i < 200; i++) { ke = (this.V - this.I0 * R) / this.w0; R = ke * ke * (this.w0 - this.wr) / this.Tr; }
     }
     this.R = R; this.ke = ke; this.Kt = ke;
     this.Tf = this.Kt * this.I0;                          // friction torque at the output shaft

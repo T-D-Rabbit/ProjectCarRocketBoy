@@ -17,7 +17,7 @@ an ESP32 DevKit socket and header pins for **every unused ESP32 pin plus a 10-pi
 | **Run hard-coded route** | the robot drives a square with 90° spins by itself (any drive key takes over) |
 | `R` / `P` | reset / pause |
 | `1` `2` `3` (or the SW1–SW3 boxes) | switch the three STBY enable switches = 3, 6 or 9 driver modules per motor |
-| max duty, soft start, sim speed | sliders / tick boxes (turn soft start off to see the 6 A inrush) |
+| max duty, soft start, sim speed | sliders / tick boxes (turn soft start off to see the 7 A inrush) |
 | jam the wheels | stall test: with only SW1 on the module tiles turn red (> 1.2 A rating) |
 | mouse drag / wheel, `C` | orbit / zoom the camera, chase-cam on/off |
 
@@ -39,13 +39,14 @@ and writes plots/CSV/`summary.md` to `simulation/results/`; `python3 simulation/
 | hard-coded route (square with spins) | mean 0.8 A while moving, peak 2.5 A | 1 group (3 modules = 3.6 A rated) |
 | 25° ramp at duty 0.7 | 1.2 A | 1 |
 | tyres at the traction limit (wheel spin, ≈ 34° slope; also what happens when pushing a wall) | ≈ 1.4 A | 1 |
-| **full-duty step from standstill (inrush)** | **6.2 A for ~50 ms** | soft-start the PWM (route uses 3 duty/s) |
-| **wheels jammed / gearbox locked** | **5.6 – 5.9 A per motor, ≈ 12 A from the battery for both** | ≥ 2 groups (or stall-detect in firmware) |
+| **full-duty step from standstill (inrush)** | **6.8 A for ~50 ms** | soft-start the PWM (route uses 3 duty/s) |
+| **wheels jammed / gearbox locked** | **6.1 – 6.5 A per motor (7.5 A on the bare 12 V terminals), ≈ 13 A from the battery for both** | ≥ 2 groups (or stall-detect in firmware) |
 
 One group (3 modules per motor channel: 3.6 A continuous, 9.6 A pulse) covers all normal driving; groups 2 and 3 (6/9 modules, 7.2/10.8 A) are insurance for jams and heavier motors.
 
-> Stall current/torque are **blank in `Johnson Motor.pdf`** (only 300 rpm no-load, 220 rpm @ 6 kgf·cm, ≤ 600 mA no-load are printed).
-> They are derived from that rated point (R = 1.78 Ω, Ke = 0.354 V·s/rad → stall ≈ 6.7 A / 22.5 kgf·cm). Measure the real value and edit `simulation/params.py` if you can.
+> **Stall current = 7.5 A (your figure)**; the stall rows in `Johnson Motor.pdf` are blank. The model uses R = 12 V / 7.5 A = 1.6 Ω and takes Ke from the 300 rpm no-load point
+> (stall torque ≈ 25 kgf·cm, derived). Cross-check: it gives 229 rpm at 6 kgf·cm against 220 ± 22 rpm in the PDF, so the two agree. In the robot the pack, driver and wiring resistance
+> bring the stalled current down to 6.1 – 6.5 A. Change `I_STALL` in `simulation/params.py` to try other values.
 
 ## 2. Mistakes found in the original design and what was changed
 
@@ -82,7 +83,7 @@ just runs reversed – swap the wires), and the ESP32 DevKit pinout. GPIO12 (AIN
   (VBAT 3 mm, GND 3 mm, motor outputs 2 mm, logic 0.3 mm); the lanes of the three columns are joined by horizontal `F.Cu` trunks (VBAT 5 mm, motor outputs 3.5 mm) that end at the battery / left / right motor
   screw terminals (`BT1`, `U11`, `U12`); the six control lines continue to the ESP32 control pins and `J3`.
 * Parts added: `SW1–3`, `C1–3`, `J1/J2` (5 V buck in/out), `J3/J4/J5` (headers above), `H1–H4` (M3). Their footprints/symbols are in `RocketBoy/RocketBoy.pretty` and `RocketBoy.kicad_sym`
-  (registered via `fp-lib-table` / `sym-lib-table`); your original `Control_Modules:` and `MCU:` footprints are untouched. Recommended in the battery lead: 15 A fuse and a main switch.
+  (registered via `fp-lib-table` / `sym-lib-table`); your original `Control_Modules:` and `MCU:` footprints are untouched. Recommended in the battery lead: 10 A fuse and a main switch.
 
 Checks run (KiCad is not available in the build environment – **please run KiCad's ERC/DRC once and press B to fill zones**):
 
@@ -108,9 +109,9 @@ Checks run (KiCad is not available in the build environment – **please run KiC
 ## 5. Simulation model and results
 
 3S Li-ion (OCV curve + 101 mΩ) → TB6612 bank (random ±25 % R_on spread decides how current shares between modules) → DC motors fitted to the datasheet rated point →
-tanh tyre-force model → differential-drive body. Hard-coded route: 4 × [drive 2 s at duty 0.6, pause, spin left 0.377 s (calibrated to 90°), settle], duty slew-limited to 3/s.
-Results (see `simulation/results/summary.md`): top speed 1.73 m/s, 0 → 1 m/s in 0.20 s, spin 269 °/s; route 15.2 s / 7.9 m, ends 69 mm and −3° from the start (open loop drifts),
-peak 2.5 A, 6.8 mAh, battery ≥ 11.76 V, worst module 1.06 A. A PCB copper check (S6) compares the trace widths in the PCB file with the currents (2 oz copper needed for stall).
+tanh tyre-force model → differential-drive body. Hard-coded route: 4 × [drive 2 s at duty 0.6, pause, spin left 0.368 s (calibrated to 90°), settle], duty slew-limited to 3/s.
+Results (see `simulation/results/summary.md`): top speed 1.73 m/s, 0 → 1 m/s in 0.18 s, spin 272 °/s; route 15.2 s / 7.9 m, ends 91 mm and +3.7° from the start (open loop drifts),
+peak 2.6 A, 6.9 mAh, battery ≥ 11.73 V, worst module 1.11 A. A PCB copper check (S6) compares the trace widths in the PCB file with the currents (2 oz copper needed for a jam; with both motors jammed the 5 mm VBAT trunk carries 13.4 A, slightly above its 12.7 A rating, so use a **10 A fuse**).
 
 Assumptions (all in `simulation/params.py`): mass 2.2 kg, 1:60 gearbox and rotor inertia, wheel, tyre μ 0.8, battery 2.8 Ah / 22 mΩ per cell, R_on 0.5 Ω ± 25 %.
 Not modelled: lateral tyre slip, motor inductance (PWM-averaged), thermal behaviour, collisions.
