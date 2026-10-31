@@ -123,6 +123,7 @@ ESP32 sketch that runs the same route (20 kHz LEDC PWM, schematic pins, 5 ms loo
 ## 7. Reproducing
 
 ```
+python3 docs/make_specs_pdf.py          # docs/SPECS.md -> docs/RocketBoy_Specs.pdf (pure Python)
 python3 simulation/run_all.py          # batch scenarios + route.h + route_30hz.json
 python3 simulation/build_web_sim.py    # RocketBoy_Simulator.html
 python3 simulation/test_js_parity.py   # JS model == Python model
