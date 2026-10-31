@@ -1,0 +1,168 @@
+newmtl chassis
+Kd 0.588 0.725 0.804
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+
+newmtl steel
+Kd 0.690 0.706 0.729
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+
+newmtl clamp
+Kd 0.478 0.510 0.549
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+
+newmtl motor_can
+Kd 0.745 0.753 0.769
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+
+newmtl gearbox
+Kd 0.788 0.635 0.294
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+
+newmtl tire
+Kd 0.110 0.110 0.118
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+
+newmtl rim
+Kd 0.922 0.471 0.157
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+
+newmtl rim_dark
+Kd 0.275 0.282 0.306
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+
+newmtl pcb
+Kd 0.078 0.431 0.243
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+
+newmtl module_pcb
+Kd 0.784 0.157 0.176
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+
+newmtl black
+Kd 0.137 0.137 0.149
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+
+newmtl esp_pcb
+Kd 0.118 0.118 0.141
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+
+newmtl usb
+Kd 0.784 0.784 0.804
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+
+newmtl terminal
+Kd 0.157 0.353 0.784
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+
+newmtl cap
+Kd 0.137 0.235 0.549
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+
+newmtl switch
+Kd 0.922 0.922 0.922
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+
+newmtl gold
+Kd 0.902 0.745 0.275
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+
+newmtl standoff
+Kd 0.804 0.627 0.275
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+
+newmtl caster
+Kd 0.588 0.596 0.620
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+
+newmtl cell
+Kd 0.157 0.471 0.784
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+
+newmtl holder
+Kd 0.235 0.235 0.259
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+
+newmtl buck
+Kd 0.157 0.392 0.745
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+
+newmtl indicator
+Kd 0.118 0.588 0.314
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+
+newmtl marker
+Kd 0.863 0.118 0.118
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+
+newmtl floor
+Kd 0.910 0.918 0.933
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+
+newmtl grid
+Kd 0.804 0.816 0.839
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+
+newmtl trail
+Kd 1.000 0.549 0.000
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+
+newmtl sky
+Kd 1.000 1.000 1.000
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20
+

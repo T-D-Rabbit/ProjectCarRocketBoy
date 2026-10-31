@@ -1,0 +1,82 @@
+(footprint "PinHeader_1x02_P2.54mm_Vertical"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "Pin header 1x2, 2.54 mm pitch")
+	(property "Reference" "REF**"
+		(at -3.200 1.270 0)
+		(layer "F.SilkS")
+		(uuid "2b21e4fa-c10f-4bfd-b667-b40b67410e0c")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "PinHeader_1x02_P2.54mm_Vertical"
+		(at 3.400 1.270 0)
+		(layer "F.Fab")
+		(uuid "9fe15f1d-f047-4bc9-b64a-191a4b974a37")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0.000 0.000 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "f9cfd3a7-3294-4886-92c6-282a65715961")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" "Pin header 1x2, 2.54 mm pitch"
+		(at 0.000 0.000 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "98a71fb7-91bf-4c95-8e2f-ba78537e8bfc")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_rect
+		(start -1.330 -1.330)
+		(end 1.330 3.870)
+		(stroke
+			(width 0.12)
+			(type default)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "cc7fa9a8-5228-47d5-9918-65396335ba5e")
+	)
+	(pad "1" thru_hole rect
+		(at 0.000 0.000)
+		(size 1.700 1.700)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "55084540-26d5-4e0c-9e92-030fcf868e46")
+	)
+	(pad "2" thru_hole circle
+		(at 0.000 2.540)
+		(size 1.700 1.700)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "569d6b41-d395-4621-b980-d696327d66a5")
+	)
+	(embedded_fonts no)
+)

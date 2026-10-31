@@ -3,7 +3,7 @@
 	(generator "eeschema")
 	(generator_version "9.0")
 	(uuid "e4b79852-5c3e-4422-b46f-8380f33e21df")
-	(paper "A4")
+	(paper "A3")
 	(lib_symbols
 		(symbol "Control_Modules:Motor"
 			(exclude_from_sim no)
@@ -1055,10 +1055,10 @@
 						)
 					)
 				)
-				(pin power_in line
+				(pin passive line
 					(at -1.27 -54.61 90)
 					(length 2.54)
-					(name "GND"
+					(name "CMD"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1906,6 +1906,1200 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "RocketBoy:SW_SPDT_Slide"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "SW"
+				(at 0 3.0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "SW_SPDT_Slide"
+				(at 2.54 5.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "SPDT slide switch: pin1 ON, pin2 common, pin3 OFF"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "SW_SPDT_Slide_1_1"
+				(rectangle
+					(start -1.27 1.27)
+					(end 5.08 -6.35)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at -5.08 0.0 0)
+					(length 3.81)
+					(name "ON"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "COM"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -5.08 0)
+					(length 3.81)
+					(name "OFF"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "RocketBoy:CP_Polarized"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "C"
+				(at 0 3.0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "CP_Polarized"
+				(at 2.54 5.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Polarized capacitor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "CP_Polarized_1_1"
+				(rectangle
+					(start -1.27 1.27)
+					(end 5.08 -3.81)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at -5.08 0.0 0)
+					(length 3.81)
+					(name "+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "RocketBoy:Conn_01x02"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 3.0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x02"
+				(at 2.54 5.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic 1x02 connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x02_1_1"
+				(rectangle
+					(start -1.27 1.27)
+					(end 5.08 -3.81)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at -5.08 0.0 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "RocketBoy:Conn_01x10"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 3.0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x10"
+				(at 2.54 5.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic 1x10 connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x10_1_1"
+				(rectangle
+					(start -1.27 1.27)
+					(end 5.08 -24.13)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at -5.08 0.0 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -5.08 0)
+					(length 3.81)
+					(name "Pin_3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -7.62 0)
+					(length 3.81)
+					(name "Pin_4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -10.16 0)
+					(length 3.81)
+					(name "Pin_5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -12.7 0)
+					(length 3.81)
+					(name "Pin_6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -15.24 0)
+					(length 3.81)
+					(name "Pin_7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -17.78 0)
+					(length 3.81)
+					(name "Pin_8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -20.32 0)
+					(length 3.81)
+					(name "Pin_9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -22.86 0)
+					(length 3.81)
+					(name "Pin_10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "RocketBoy:Conn_01x16"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 3.0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x16"
+				(at 2.54 5.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic 1x16 connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x16_1_1"
+				(rectangle
+					(start -1.27 1.27)
+					(end 5.08 -39.37)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at -5.08 0.0 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -5.08 0)
+					(length 3.81)
+					(name "Pin_3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -7.62 0)
+					(length 3.81)
+					(name "Pin_4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -10.16 0)
+					(length 3.81)
+					(name "Pin_5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -12.7 0)
+					(length 3.81)
+					(name "Pin_6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -15.24 0)
+					(length 3.81)
+					(name "Pin_7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -17.78 0)
+					(length 3.81)
+					(name "Pin_8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -20.32 0)
+					(length 3.81)
+					(name "Pin_9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -22.86 0)
+					(length 3.81)
+					(name "Pin_10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -25.4 0)
+					(length 3.81)
+					(name "Pin_11"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "11"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -27.94 0)
+					(length 3.81)
+					(name "Pin_12"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "12"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -30.48 0)
+					(length 3.81)
+					(name "Pin_13"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "13"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -33.02 0)
+					(length 3.81)
+					(name "Pin_14"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "14"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -35.56 0)
+					(length 3.81)
+					(name "Pin_15"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "15"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -38.1 0)
+					(length 3.81)
+					(name "Pin_16"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "16"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "RocketBoy:Conn_01x08"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 3.0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x08"
+				(at 2.54 5.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic 1x08 connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x08_1_1"
+				(rectangle
+					(start -1.27 1.27)
+					(end 5.08 -19.05)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at -5.08 0.0 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -5.08 0)
+					(length 3.81)
+					(name "Pin_3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -7.62 0)
+					(length 3.81)
+					(name "Pin_4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -10.16 0)
+					(length 3.81)
+					(name "Pin_5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -12.7 0)
+					(length 3.81)
+					(name "Pin_6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -15.24 0)
+					(length 3.81)
+					(name "Pin_7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -17.78 0)
+					(length 3.81)
+					(name "Pin_8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "RocketBoy:MountingHole"
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board yes)
+			(property "Reference" "H"
+				(at 0 4.5 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "MountingHole"
+				(at 2.54 7.04 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Mounting hole"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "MountingHole_1_1"
+				(circle
+					(center 0 0)
+					(radius 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 	)
 	(junction
 		(at 205.74 137.16)
@@ -1918,12 +3112,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "0a2fb653-4949-42b4-9709-1c09ed7bd940")
-	)
-	(junction
-		(at 120.65 111.76)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0fd63250-ec58-4993-85a4-1889218c44df")
 	)
 	(junction
 		(at 120.65 137.16)
@@ -1974,12 +3162,6 @@
 		(uuid "4ddb0610-7f5b-4e6d-bc96-657fcef6087e")
 	)
 	(junction
-		(at 203.2 111.76)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "4e2504df-10f6-43e1-9bce-170882df521f")
-	)
-	(junction
 		(at 162.56 137.16)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2004,18 +3186,6 @@
 		(uuid "81945323-723c-421b-a496-1fc20d71c3e9")
 	)
 	(junction
-		(at 162.56 111.76)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8eb9bc31-f1a7-4f76-9040-d628144c602f")
-	)
-	(junction
-		(at 120.65 48.26)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8ff24329-6b2f-445a-bb56-1f75da7fb1c6")
-	)
-	(junction
 		(at 205.74 73.66)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2028,40 +3198,16 @@
 		(uuid "9b09673a-444a-4bd8-8c0a-ea724745c707")
 	)
 	(junction
-		(at 203.2 48.26)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "a0880a09-af42-40ed-b4b9-7b13fa1607e2")
-	)
-	(junction
 		(at 203.2 105.41)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ad2a385d-b540-4f69-b18a-9615c22ef442")
 	)
 	(junction
-		(at 162.56 48.26)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b5ac9ee1-b8ea-46a2-af7d-d60ac26c1750")
-	)
-	(junction
-		(at 162.56 80.01)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b5c240cb-c8d6-46e4-90e9-2bfb450f184a")
-	)
-	(junction
 		(at 120.65 73.66)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "bf25aac9-0467-45b7-b549-3e17ff75ab0f")
-	)
-	(junction
-		(at 41.91 137.16)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c69a265a-cecd-47fc-94b6-d4e7da690369")
 	)
 	(junction
 		(at 123.19 137.16)
@@ -2074,18 +3220,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "dd72cbae-6e88-4ac1-890f-1b61e94d0204")
-	)
-	(junction
-		(at 120.65 80.01)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "df964293-e265-446c-8f96-5af10803c542")
-	)
-	(junction
-		(at 203.2 80.01)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "ead2b498-44ef-429d-bce2-5dcda93286b2")
 	)
 	(junction
 		(at 54.61 30.48)
@@ -2237,16 +3371,6 @@
 	)
 	(wire
 		(pts
-			(xy 39.37 137.16) (xy 41.91 137.16)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "594b9883-a30c-4507-ba33-6267c5c1bbc7")
-	)
-	(wire
-		(pts
 			(xy 39.37 74.93) (xy 39.37 78.74)
 		)
 		(stroke
@@ -2264,16 +3388,6 @@
 			(type default)
 		)
 		(uuid "61b40b92-7887-4289-a40c-fe38ed62b729")
-	)
-	(wire
-		(pts
-			(xy 162.56 48.26) (xy 165.1 48.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "717cf02a-0fa3-43a8-9d85-52ceed416a03")
 	)
 	(wire
 		(pts
@@ -2297,16 +3411,6 @@
 	)
 	(wire
 		(pts
-			(xy 203.2 111.76) (xy 205.74 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "79b24235-87ee-455a-a35c-e3a90988b601")
-	)
-	(wire
-		(pts
 			(xy 123.19 73.66) (xy 125.73 73.66)
 		)
 		(stroke
@@ -2327,16 +3431,6 @@
 	)
 	(wire
 		(pts
-			(xy 162.56 111.76) (xy 165.1 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8e27cc11-6643-410d-a6c3-c9cdb38cd4be")
-	)
-	(wire
-		(pts
 			(xy 165.1 137.16) (xy 167.64 137.16)
 		)
 		(stroke
@@ -2344,26 +3438,6 @@
 			(type default)
 		)
 		(uuid "965a00a6-735d-4700-92b6-15f35fa767d9")
-	)
-	(wire
-		(pts
-			(xy 120.65 48.26) (xy 123.19 48.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9acc87b3-1729-403a-aa0a-869de47363de")
-	)
-	(wire
-		(pts
-			(xy 162.56 80.01) (xy 165.1 80.01)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a0dc526e-a3f7-492f-a5dc-087f4be9000a")
 	)
 	(wire
 		(pts
@@ -2387,26 +3461,6 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 111.76) (xy 123.19 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b281e9c0-d13b-4019-8b4c-9d2ad853152e")
-	)
-	(wire
-		(pts
-			(xy 120.65 80.01) (xy 123.19 80.01)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b7d6c39b-655f-45c1-8843-ca7f125f79d4")
-	)
-	(wire
-		(pts
 			(xy 120.65 73.66) (xy 123.19 73.66)
 		)
 		(stroke
@@ -2424,26 +3478,6 @@
 			(type default)
 		)
 		(uuid "ce0b9094-6ee5-4bb2-b964-803cc3cf9540")
-	)
-	(wire
-		(pts
-			(xy 203.2 80.01) (xy 205.74 80.01)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dcd43ed6-fa01-490a-ac58-bc4bbe1eefce")
-	)
-	(wire
-		(pts
-			(xy 203.2 48.26) (xy 205.74 48.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dda38cae-f2f6-441e-8e09-22e2bdfcc96f")
 	)
 	(wire
 		(pts
@@ -3570,7 +4604,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VCC"
+		(property "Value" "VBAT"
 			(at 208.28 43.18 0)
 			(effects
 				(font
@@ -3596,7 +4630,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"VCC\""
+		(property "Description" "Power symbol creates a global label with name \"VBAT\""
 			(at 208.28 48.26 0)
 			(effects
 				(font
@@ -3767,7 +4801,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VCC"
+		(property "Value" "VBAT"
 			(at 199.898 79.756 0)
 			(effects
 				(font
@@ -3793,7 +4827,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"VCC\""
+		(property "Description" "Power symbol creates a global label with name \"VBAT\""
 			(at 208.28 80.01 0)
 			(effects
 				(font
@@ -3833,7 +4867,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VCC"
+		(property "Value" "VBAT"
 			(at 167.64 43.18 0)
 			(effects
 				(font
@@ -3859,7 +4893,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"VCC\""
+		(property "Description" "Power symbol creates a global label with name \"VBAT\""
 			(at 167.64 48.26 0)
 			(effects
 				(font
@@ -3963,7 +4997,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VCC"
+		(property "Value" "VBAT"
 			(at 117.602 111.252 0)
 			(effects
 				(font
@@ -3989,7 +5023,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"VCC\""
+		(property "Description" "Power symbol creates a global label with name \"VBAT\""
 			(at 125.73 111.76 0)
 			(effects
 				(font
@@ -4324,7 +5358,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Control_Modules:SwitchPads_1"
+		(property "Footprint" "RocketBoy:TerminalBlock_5.08mm_2P_Vertical"
 			(at 67.564 30.48 90)
 			(effects
 				(font
@@ -4590,7 +5624,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VCC"
+		(property "Value" "+5V"
 			(at 48.26 74.93 0)
 			(effects
 				(font
@@ -4616,7 +5650,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"VCC\""
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
 			(at 48.26 80.01 0)
 			(effects
 				(font
@@ -5385,7 +6419,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VCC"
+		(property "Value" "VBAT"
 			(at 77.47 25.4 0)
 			(effects
 				(font
@@ -5411,7 +6445,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"VCC\""
+		(property "Description" "Power symbol creates a global label with name \"VBAT\""
 			(at 77.47 30.48 0)
 			(effects
 				(font
@@ -5637,7 +6671,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Control_Modules:SwitchPads_1"
+		(property "Footprint" "RocketBoy:TerminalBlock_5.08mm_2P_Vertical"
 			(at 242.57 73.66 0)
 			(effects
 				(font
@@ -5762,7 +6796,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VCC"
+		(property "Value" "VBAT"
 			(at 117.348 79.248 0)
 			(effects
 				(font
@@ -5788,7 +6822,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"VCC\""
+		(property "Description" "Power symbol creates a global label with name \"VBAT\""
 			(at 125.73 80.01 0)
 			(effects
 				(font
@@ -5893,7 +6927,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VCC"
+		(property "Value" "VBAT"
 			(at 161.036 78.994 0)
 			(effects
 				(font
@@ -5919,7 +6953,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"VCC\""
+		(property "Description" "Power symbol creates a global label with name \"VBAT\""
 			(at 167.64 80.01 0)
 			(effects
 				(font
@@ -6024,7 +7058,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VCC"
+		(property "Value" "VBAT"
 			(at 125.73 43.18 0)
 			(effects
 				(font
@@ -6050,7 +7084,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"VCC\""
+		(property "Description" "Power symbol creates a global label with name \"VBAT\""
 			(at 125.73 48.26 0)
 			(effects
 				(font
@@ -6089,7 +7123,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VCC"
+		(property "Value" "VBAT"
 			(at 153.67 110.236 0)
 			(effects
 				(font
@@ -6115,7 +7149,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"VCC\""
+		(property "Description" "Power symbol creates a global label with name \"VBAT\""
 			(at 167.64 111.76 0)
 			(effects
 				(font
@@ -6509,7 +7543,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VCC"
+		(property "Value" "VBAT"
 			(at 199.898 111.506 0)
 			(effects
 				(font
@@ -6535,7 +7569,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"VCC\""
+		(property "Description" "Power symbol creates a global label with name \"VBAT\""
 			(at 208.28 111.76 0)
 			(effects
 				(font
@@ -6848,7 +7882,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Control_Modules:SwitchPads_1"
+		(property "Footprint" "RocketBoy:TerminalBlock_5.08mm_2P_Vertical"
 			(at 242.57 62.23 0)
 			(effects
 				(font
@@ -7198,6 +8232,3256 @@
 				)
 			)
 		)
+	)
+	(symbol
+		(lib_id "RocketBoy:SW_SPDT_Slide")
+		(at 50.8 175.26 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "aed5afae-490f-52e1-b006-cf1d15564b29")
+		(property "Reference" "SW1"
+			(at 50.8 179.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "STBY_GROUP1"
+			(at 53.339999999999996 181.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "RocketBoy:SPDT_Slide_1x03_P2.54mm"
+			(at 50.8 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 50.8 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Group 1 enable: ON = STBY high (3 TB6612 modules active), OFF = STBY low (outputs Hi-Z)"
+			(at 50.8 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "76bb6475-c076-5673-b44e-9dd5e9cff33b")
+		)
+		(pin "2"
+			(uuid "ad051b5f-6094-5e39-95f0-0dc3bd9ca66d")
+		)
+		(pin "3"
+			(uuid "70849d2b-6b49-5bf3-8b1a-010c77e30ee0")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "SW1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCCQ")
+		(at 45.72 175.26 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d90c2cc1-a554-571f-bdcf-1706bb9428dd")
+		(property "Reference" "#PWR033"
+			(at 45.72 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VCCQ"
+			(at 38.72 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 45.72 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 45.72 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCCQ\""
+			(at 45.72 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9c0bc460-3147-5249-a2d3-51421da654ee")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR033")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(label "STBY1"
+		(at 45.72 177.8 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "c0a57338-e996-5dfd-a0c1-856eb4c8e7d8")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 45.72 180.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "226bb854-abd2-53e2-934d-756cde1b2813")
+		(property "Reference" "#PWR034"
+			(at 45.72 186.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 38.72 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 45.72 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 45.72 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\""
+			(at 45.72 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d688ef1a-a0f7-5045-86bf-198251bdb263")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR034")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "RocketBoy:SW_SPDT_Slide")
+		(at 111.76 175.26 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8483105c-0668-545f-ba3a-e3ecd3b49846")
+		(property "Reference" "SW2"
+			(at 111.76 179.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "STBY_GROUP2"
+			(at 114.30000000000001 181.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "RocketBoy:SPDT_Slide_1x03_P2.54mm"
+			(at 111.76 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 111.76 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Group 2 enable: ON = STBY high (3 TB6612 modules active), OFF = STBY low (outputs Hi-Z)"
+			(at 111.76 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "da0ab653-0353-5425-897d-1ca1876a02cf")
+		)
+		(pin "2"
+			(uuid "44054cdc-e497-58e1-8b1f-dd7f6b2967b1")
+		)
+		(pin "3"
+			(uuid "0df5eda0-2525-5e0a-a7ed-141f9c6e3261")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "SW2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCCQ")
+		(at 106.68 175.26 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d33598bc-fe57-5603-9814-f8f82ccd2b1d")
+		(property "Reference" "#PWR035"
+			(at 106.68 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VCCQ"
+			(at 99.68 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 106.68 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 106.68 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCCQ\""
+			(at 106.68 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "450ec15e-abb8-50c1-91d0-abfabab786c6")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR035")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(label "STBY2"
+		(at 106.68 177.8 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "ada5c2c4-e1a5-5b10-8c57-1d953fa90f3b")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 106.68 180.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c6c83509-81a0-5c77-b76c-ab9226e20732")
+		(property "Reference" "#PWR036"
+			(at 106.68 186.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 99.68 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 106.68 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 106.68 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\""
+			(at 106.68 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "76aac49e-9b8b-5709-a53d-346e48c40f8c")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR036")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "RocketBoy:SW_SPDT_Slide")
+		(at 172.72 175.26 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7801ea21-490c-51f0-a5bb-2d5781cb7e72")
+		(property "Reference" "SW3"
+			(at 172.72 179.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "STBY_GROUP3"
+			(at 175.26 181.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "RocketBoy:SPDT_Slide_1x03_P2.54mm"
+			(at 172.72 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 172.72 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Group 3 enable: ON = STBY high (3 TB6612 modules active), OFF = STBY low (outputs Hi-Z)"
+			(at 172.72 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b8def492-4b5d-5f72-a51e-3ed9f599213e")
+		)
+		(pin "2"
+			(uuid "6afbf218-e3d9-5aba-8312-33fdcddf90c6")
+		)
+		(pin "3"
+			(uuid "a7750e3f-a6d0-52d1-ae6e-ac0c93bf1932")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "SW3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCCQ")
+		(at 167.64 175.26 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7546fb7d-8dff-5b76-a7ac-d145f33f2947")
+		(property "Reference" "#PWR037"
+			(at 167.64 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VCCQ"
+			(at 160.64 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 167.64 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 167.64 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCCQ\""
+			(at 167.64 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ddf07dfe-2aca-5d75-afab-3c4c6ef7b64c")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR037")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(label "STBY3"
+		(at 167.64 177.8 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "1c1f747a-2ddf-593e-952c-691f54bb9ac0")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 167.64 180.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d194a097-62f7-5e89-8c15-78814322e719")
+		(property "Reference" "#PWR038"
+			(at 167.64 186.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 160.64 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 167.64 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 167.64 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\""
+			(at 167.64 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c298dfc6-a8da-5907-a629-940481374d6c")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR038")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "RocketBoy:CP_Polarized")
+		(at 50.8 215.9 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3ab7623c-d1d6-5f34-b6c9-0d739e1c0b9c")
+		(property "Reference" "C1"
+			(at 50.8 219.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "470uF 25V"
+			(at 53.339999999999996 222.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "RocketBoy:CP_Radial_D10.0mm_P5.00mm"
+			(at 50.8 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 50.8 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "VM bulk capacitor 1"
+			(at 50.8 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "40dbd59b-9275-54e3-b5e2-2a43120243d9")
+		)
+		(pin "2"
+			(uuid "7a1d708c-9571-5817-9890-e3a56474dde4")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "C1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 45.72 215.9 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "0b0eb49b-ab7b-5246-852b-1db7ea747613")
+		(property "Reference" "#PWR039"
+			(at 45.72 209.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VBAT"
+			(at 38.72 212.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 45.72 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 45.72 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VBAT\""
+			(at 45.72 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ae9023d5-8eee-5c53-956d-0c9bd0e3ea30")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR039")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 45.72 218.44 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3366b544-a2f9-5889-b57d-0d5a478540a2")
+		(property "Reference" "#PWR040"
+			(at 45.72 224.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 38.72 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 45.72 218.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 45.72 218.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\""
+			(at 45.72 218.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a5401377-617e-5900-bdd9-06ce418c896c")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR040")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "RocketBoy:CP_Polarized")
+		(at 111.76 215.9 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "fef690fd-7eb2-52e1-a8cc-c00c4d71ab93")
+		(property "Reference" "C2"
+			(at 111.76 219.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "470uF 25V"
+			(at 114.30000000000001 222.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "RocketBoy:CP_Radial_D10.0mm_P5.00mm"
+			(at 111.76 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 111.76 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "VM bulk capacitor 2"
+			(at 111.76 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8f80e313-03d0-50fd-9c72-d2439ff23424")
+		)
+		(pin "2"
+			(uuid "ce0d10c3-8489-5f5b-99fc-ed8e03bcc5da")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "C2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 106.68 215.9 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a9fac2a6-15ef-530d-904b-b8269979f4f8")
+		(property "Reference" "#PWR041"
+			(at 106.68 209.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VBAT"
+			(at 99.68 212.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 106.68 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 106.68 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VBAT\""
+			(at 106.68 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "bc1fba6e-44a2-5eab-b6a9-8daf14d96b78")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR041")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 106.68 218.44 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "943d31c8-ac4c-5f3e-9dcc-3a269eb2b287")
+		(property "Reference" "#PWR042"
+			(at 106.68 224.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 99.68 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 106.68 218.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 106.68 218.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\""
+			(at 106.68 218.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c53f522f-6535-5f86-92f9-d58a7fd9c446")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR042")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "RocketBoy:CP_Polarized")
+		(at 172.72 215.9 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "65b2f36f-0ac3-534d-ac3c-398d3dcde991")
+		(property "Reference" "C3"
+			(at 172.72 219.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "470uF 25V"
+			(at 175.26 222.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "RocketBoy:CP_Radial_D10.0mm_P5.00mm"
+			(at 172.72 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 172.72 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "VM bulk capacitor 3"
+			(at 172.72 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "822482b3-cc1e-5ef3-bf94-eb20feaf4ca1")
+		)
+		(pin "2"
+			(uuid "1bc98518-17b8-5db7-8882-fae408bc18ff")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "C3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 167.64 215.9 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "cebca90b-0ff7-5f88-83a6-a99d72c7f86c")
+		(property "Reference" "#PWR043"
+			(at 167.64 209.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VBAT"
+			(at 160.64 212.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 167.64 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 167.64 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VBAT\""
+			(at 167.64 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9901276e-c9fd-5dc8-8cf6-227b3ef95b4a")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR043")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 167.64 218.44 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c398d40b-8ce9-585d-9695-6f19a4bc9d60")
+		(property "Reference" "#PWR044"
+			(at 167.64 224.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 160.64 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 167.64 218.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 167.64 218.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\""
+			(at 167.64 218.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b8dcd07d-7f8d-5a67-8c5e-64056e405f5c")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR044")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "RocketBoy:Conn_01x02")
+		(at 233.68 175.26 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "eeec08c2-da60-58c7-9f69-5dbf07b5dea1")
+		(property "Reference" "J1"
+			(at 233.68 179.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "BUCK_IN"
+			(at 236.22 181.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "RocketBoy:PinHeader_1x02_P2.54mm_Vertical"
+			(at 233.68 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 233.68 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Input to external 5 V buck module (VBAT, GND)"
+			(at 233.68 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c7f42fd8-8398-5723-93bb-5ee217f2aa9d")
+		)
+		(pin "2"
+			(uuid "b5e7a854-dc50-54d3-a0b9-a4a00d011c77")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "J1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 228.6 175.26 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5e623788-006a-561b-a14a-737ac932b912")
+		(property "Reference" "#PWR045"
+			(at 228.6 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VBAT"
+			(at 221.6 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 228.6 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 228.6 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VBAT\""
+			(at 228.6 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "14b22985-c9ad-545b-a9c5-fbbffbec97db")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR045")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 228.6 177.8 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1495a53a-0a2b-5038-827f-8fa19105a9f0")
+		(property "Reference" "#PWR046"
+			(at 228.6 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 221.6 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 228.6 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 228.6 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\""
+			(at 228.6 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "efa6446b-4ffb-5429-acb5-9d02a7b340e8")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR046")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "RocketBoy:Conn_01x02")
+		(at 233.68 200.66 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5f63f5d5-ac52-5a4c-b726-3e1c60527aeb")
+		(property "Reference" "J2"
+			(at 233.68 204.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "BUCK_OUT"
+			(at 236.22 207.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "RocketBoy:PinHeader_1x02_P2.54mm_Vertical"
+			(at 233.68 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 233.68 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Output of external 5 V buck module (+5V, GND)"
+			(at 233.68 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "052573af-9de8-5f3d-acb2-e810cbe915d8")
+		)
+		(pin "2"
+			(uuid "7a4f8f97-68f1-560c-a618-458722caad77")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "J2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 228.6 200.66 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "eeb36e95-1f2a-5c9c-bb9a-3c7a92784f80")
+		(property "Reference" "#PWR047"
+			(at 228.6 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 221.6 196.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 228.6 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 228.6 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 228.6 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "fffd9563-938f-5e2a-96cb-41e14b795d63")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR047")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 228.6 203.2 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "02f71110-65b6-5307-ad2d-03e981b04c1d")
+		(property "Reference" "#PWR048"
+			(at 228.6 209.54999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 221.6 207.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 228.6 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 228.6 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\""
+			(at 228.6 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f87036b4-06ac-5007-b864-10a6a58fd7a7")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR048")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "RocketBoy:Conn_01x10")
+		(at 294.64 175.26 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "754b9e4c-8640-552b-a962-2ca28f3a3d9d")
+		(property "Reference" "J3"
+			(at 294.64 179.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "EXPANSION"
+			(at 297.18 181.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "RocketBoy:PinHeader_1x10_P2.54mm_Vertical"
+			(at 294.64 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 294.64 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Expansion header for a second PCB / controller: 1=5V 2=3V3 3=GND 4=BIN1 5=BIN2 6=PWMB 7=AIN2 8=AIN1 9=GND 10=PWMA (same nets as the ESP32 control pins, remove the ESP32 when the other board drives them)"
+			(at 294.64 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1f784276-b3d4-5d2f-bc84-162f5ed62aea")
+		)
+		(pin "2"
+			(uuid "36aabae7-2133-5011-b147-3e0b23a5f05b")
+		)
+		(pin "3"
+			(uuid "2703fd22-5929-5aac-a6de-339e1285d7ac")
+		)
+		(pin "4"
+			(uuid "4815d226-011b-5fd5-b41e-2730d8aeca60")
+		)
+		(pin "5"
+			(uuid "574ac8ee-1bf0-5c4c-967d-3286c2e73dce")
+		)
+		(pin "6"
+			(uuid "6efb2838-f0bd-578b-92e9-7938e6fdbd73")
+		)
+		(pin "7"
+			(uuid "f38e01d9-52bc-56e9-bd8e-76ceac8c44c1")
+		)
+		(pin "8"
+			(uuid "db9f9f1d-14d5-560b-a24c-8fba35e12dfb")
+		)
+		(pin "9"
+			(uuid "3e2378a0-63ad-5be7-bec8-d9f76a8f6f74")
+		)
+		(pin "10"
+			(uuid "24f72060-dda1-5b36-b6f8-72c476d1f166")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "J3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 289.56 175.26 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "12f3e5d8-0538-5237-ad76-349e46c09156")
+		(property "Reference" "#PWR049"
+			(at 289.56 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 282.56 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 289.56 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 289.56 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 289.56 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "822db1b1-843e-5145-a254-e6acfc4dc333")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR049")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCCQ")
+		(at 289.56 177.8 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "32479ea8-f6fd-5262-9381-3790900c78dc")
+		(property "Reference" "#PWR050"
+			(at 289.56 171.45000000000002 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VCCQ"
+			(at 282.56 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 289.56 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 289.56 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCCQ\""
+			(at 289.56 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2b734648-c43d-56f1-b7dd-dcd542918e9c")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR050")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 289.56 180.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7306180f-7e7f-59d0-a280-09406e24bc32")
+		(property "Reference" "#PWR051"
+			(at 289.56 186.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 282.56 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 289.56 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 289.56 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\""
+			(at 289.56 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c3b2e39d-b60b-5508-b99f-d309ec1172b8")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR051")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(label "BIN1"
+		(at 289.56 182.88 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "a1fb2816-eac1-5957-8c61-1b878f92a212")
+	)
+	(label "BIN2"
+		(at 289.56 185.42 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "0b5bfc81-4569-578f-b663-cbf02176408c")
+	)
+	(label "PWMB"
+		(at 289.56 187.96 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "927025c1-fa9a-5854-9d59-daacd10daef2")
+	)
+	(label "AIN2"
+		(at 289.56 190.5 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "0d78c949-6436-5a84-8680-885df433c625")
+	)
+	(label "AIN1"
+		(at 289.56 193.04 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "4dca2500-9bf3-5f41-b019-daf92b21b7ed")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 289.56 195.58 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e80358fc-e55a-5c46-930e-04587ef534f7")
+		(property "Reference" "#PWR052"
+			(at 289.56 201.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 282.56 199.39000000000001 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 289.56 195.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 289.56 195.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\""
+			(at 289.56 195.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "112b4575-af22-5adb-b45b-13bd92e75003")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR052")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(label "PWMA"
+		(at 289.56 198.12 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "88ac996f-1a74-5ff8-8256-577d3a046a5c")
+	)
+	(symbol
+		(lib_id "RocketBoy:Conn_01x16")
+		(at 294.64 215.9 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6f567737-9e45-579f-86d9-2881de8fb6bd")
+		(property "Reference" "J4"
+			(at 294.64 219.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "ESP_GPIO_EAST"
+			(at 297.18 222.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "RocketBoy:PinHeader_1x16_P2.54mm_Vertical"
+			(at 294.64 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 294.64 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Break-out of the east ESP32 pin row (DevKit pads 19..4): GND, GPIO23/22/1/3/21, GND, GPIO19/18/5/17/16/4/0/2/15. Flash pins GPIO6-11 are NOT broken out."
+			(at 294.64 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4a601004-416e-53b6-8447-23c344cb6fa3")
+		)
+		(pin "2"
+			(uuid "60eb653f-f108-5223-baaf-d562bcf18839")
+		)
+		(pin "3"
+			(uuid "3855fd89-51ca-5e7e-8b27-f1f0ab3f387d")
+		)
+		(pin "4"
+			(uuid "f0eaafff-9478-5402-aae3-2d11c4d5d57e")
+		)
+		(pin "5"
+			(uuid "0f98907a-b545-5298-b05a-d228cd0ba077")
+		)
+		(pin "6"
+			(uuid "6b086f64-6f7c-545d-8eea-7329c2399f4c")
+		)
+		(pin "7"
+			(uuid "66d13c4b-a578-54ea-808d-d71b156049ad")
+		)
+		(pin "8"
+			(uuid "81add34e-5c60-5a72-b4ea-18861186753f")
+		)
+		(pin "9"
+			(uuid "cd8e85da-6d4d-5f51-ab57-acfa59d15386")
+		)
+		(pin "10"
+			(uuid "64ade2db-22e4-5f20-b603-1f92348d00d1")
+		)
+		(pin "11"
+			(uuid "6d077404-9330-5701-a0fe-d2f1f6eaad26")
+		)
+		(pin "12"
+			(uuid "de110fd8-462d-598a-a7e7-83ba44159aeb")
+		)
+		(pin "13"
+			(uuid "d48ff369-db9b-58d4-822a-0b0b4f9cd893")
+		)
+		(pin "14"
+			(uuid "6e857cff-f59c-5952-a560-88070fb3e20e")
+		)
+		(pin "15"
+			(uuid "a8f515c2-47d7-5f1c-8779-731f9022e5ec")
+		)
+		(pin "16"
+			(uuid "5fb106fa-3161-5a88-a4dc-6e863d1076ca")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "J4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 289.56 215.9 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "66b524d7-c1a7-5b00-b693-e9d6184abbcd")
+		(property "Reference" "#PWR053"
+			(at 289.56 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 282.56 219.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 289.56 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 289.56 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\""
+			(at 289.56 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7bf356ab-cc53-5a21-b440-0978b57137aa")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR053")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(label "GPIO23"
+		(at 289.56 218.44 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "15a84d22-a934-50dc-9ffa-404af6c35533")
+	)
+	(label "GPIO22"
+		(at 289.56 220.98 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "2ec61380-9094-58cb-983e-a8f7737375dc")
+	)
+	(label "GPIO1_TX"
+		(at 289.56 223.52 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "c517debd-11b3-5168-b3e8-9fca1b1a2e9e")
+	)
+	(label "GPIO3_RX"
+		(at 289.56 226.06 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "25126c1f-7737-5cfe-a8b4-f373da56759a")
+	)
+	(label "GPIO21"
+		(at 289.56 228.6 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "499ed737-4ff2-52d7-8777-a70b21aa6ede")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 289.56 231.14 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b86ae38a-e1bd-5756-a9c2-a7ac078b2c56")
+		(property "Reference" "#PWR054"
+			(at 289.56 237.48999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 282.56 234.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 289.56 231.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 289.56 231.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\""
+			(at 289.56 231.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7e39a2f7-adfc-53b4-84f6-e7dee32e2d9a")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR054")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(label "GPIO19"
+		(at 289.56 233.68 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "6bdd108f-37ef-5cd8-93ee-54b2a16371a2")
+	)
+	(label "GPIO18"
+		(at 289.56 236.22 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "5555a9e9-1773-59f1-a15e-0e8c887cc227")
+	)
+	(label "GPIO5"
+		(at 289.56 238.76 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "06ba7831-14d6-57ae-bd9d-d14b2176d7ed")
+	)
+	(label "GPIO17"
+		(at 289.56 241.3 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "df68ff04-0ebf-500f-9d6f-4f2137c7779c")
+	)
+	(label "GPIO16"
+		(at 289.56 243.84 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "c7ceb470-58a3-5b13-97f1-b5aef050bb10")
+	)
+	(label "GPIO4"
+		(at 289.56 246.38 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "f33d71e8-14b5-512e-a11b-54bc3c8fac28")
+	)
+	(label "GPIO0"
+		(at 289.56 248.92 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "a9fac12e-d546-5997-a426-b4171802b692")
+	)
+	(label "GPIO2"
+		(at 289.56 251.46 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "84948016-c0de-57e1-a3a4-7842ca2286e4")
+	)
+	(label "GPIO15"
+		(at 289.56 254.0 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "360d0473-28f9-513c-956d-962a170b34db")
+	)
+	(symbol
+		(lib_id "RocketBoy:Conn_01x08")
+		(at 355.6 175.26 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "47e69374-ab07-52a4-8897-439698a36d2c")
+		(property "Reference" "J5"
+			(at 355.6 179.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "ESP_GPIO_WEST"
+			(at 358.14000000000004 181.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "RocketBoy:PinHeader_1x08_P2.54mm_Vertical"
+			(at 355.6 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 355.6 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Break-out of the west ESP32 pin row (DevKit pads 38..31): 3V3, EN, GPIO36/39/34/35 (input only), GPIO32/33"
+			(at 355.6 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "dcb810c5-32e4-5e14-8e6a-cb4738529096")
+		)
+		(pin "2"
+			(uuid "f2a8a0b9-ac75-544b-81e6-da076691626f")
+		)
+		(pin "3"
+			(uuid "5e3c0296-6556-5e84-a531-6886c4ea7d1b")
+		)
+		(pin "4"
+			(uuid "10b14c4f-bfe0-5584-aab1-2a03266e7ade")
+		)
+		(pin "5"
+			(uuid "bc9f3c32-c7fa-5510-9e66-88611681da95")
+		)
+		(pin "6"
+			(uuid "2d2d9e06-841c-5a47-a492-385d402131bc")
+		)
+		(pin "7"
+			(uuid "cc547c60-ef1e-574b-afa5-33f706297124")
+		)
+		(pin "8"
+			(uuid "dde2792a-348d-5833-ac5b-a6fcb169041f")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "J5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCCQ")
+		(at 350.52 175.26 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7484abe1-e6f9-551d-bd29-d26a1fafcd24")
+		(property "Reference" "#PWR055"
+			(at 350.52 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VCCQ"
+			(at 343.52 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 350.52 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 350.52 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCCQ\""
+			(at 350.52 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c818ac73-028e-53a2-8859-f5f6b2d64369")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR055")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(label "EN"
+		(at 350.52 177.8 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "40c62ff5-3845-554e-a810-e37f4611e838")
+	)
+	(label "GPIO36"
+		(at 350.52 180.34 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "5a0a4261-e130-5991-b0e6-6421b36553e2")
+	)
+	(label "GPIO39"
+		(at 350.52 182.88 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "8761d064-7a70-50a6-99d0-7a4c9fc81936")
+	)
+	(label "GPIO34"
+		(at 350.52 185.42 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "0cd4f7e1-d180-5e8a-a460-eb21f1d5a6eb")
+	)
+	(label "GPIO35"
+		(at 350.52 187.96 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "e53e76ab-4947-57b6-8af1-0b77aaa7b733")
+	)
+	(label "GPIO32"
+		(at 350.52 190.5 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "4d1a0101-3857-5b19-9a9e-25bbacde3cbf")
+	)
+	(label "GPIO33"
+		(at 350.52 193.04 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "366d2983-4b08-5dd4-b11c-d6dd66ceb2ad")
+	)
+	(symbol
+		(lib_id "RocketBoy:MountingHole")
+		(at 240.0 275.0 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "a3f7bcf7-59ac-5514-b854-07e643d52f2b")
+		(property "Reference" "H1"
+			(at 240.0 279.0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "M3"
+			(at 242.54 281.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "RocketBoy:MountingHole_3.2mm_M3"
+			(at 240.0 275.0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 240.0 275.0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "M3 mounting hole (chassis pattern)"
+			(at 240.0 275.0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "H1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "RocketBoy:MountingHole")
+		(at 260.0 275.0 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "28b76287-49cb-564f-a732-8ac1130073f3")
+		(property "Reference" "H2"
+			(at 260.0 279.0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "M3"
+			(at 262.54 281.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "RocketBoy:MountingHole_3.2mm_M3"
+			(at 260.0 275.0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 260.0 275.0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "M3 mounting hole (chassis pattern)"
+			(at 260.0 275.0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "H2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "RocketBoy:MountingHole")
+		(at 280.0 275.0 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "2b7b2bb2-b385-5650-b9d5-f514f482f0f7")
+		(property "Reference" "H3"
+			(at 280.0 279.0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "M3"
+			(at 282.54 281.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "RocketBoy:MountingHole_3.2mm_M3"
+			(at 280.0 275.0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 280.0 275.0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "M3 mounting hole (chassis pattern)"
+			(at 280.0 275.0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "H3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "RocketBoy:MountingHole")
+		(at 300.0 275.0 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "877845c2-69a1-5f71-9b16-8c722fa0a8b3")
+		(property "Reference" "H4"
+			(at 300.0 279.0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "M3"
+			(at 302.54 281.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "RocketBoy:MountingHole_3.2mm_M3"
+			(at 300.0 275.0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 300.0 275.0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "M3 mounting hole (chassis pattern)"
+			(at 300.0 275.0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "H4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 228.6 200.66 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4563804e-1f45-5bd2-9542-f43fc7b78561")
+		(property "Reference" "#FLG04"
+			(at 228.6 196.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 228.6 196.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 228.6 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 228.6 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 228.6 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "817f67e1-8bce-5153-ba59-de64ad648e52")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#FLG04")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(label "STBY1"
+		(at 123.19 48.26 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "1bacf791-3a9e-5db6-a574-c27c04876e4f")
+	)
+	(label "STBY1"
+		(at 123.19 80.01 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0152d75a-080e-5190-aaab-8b9ec3447893")
+	)
+	(label "STBY1"
+		(at 123.19 111.76 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "bf7b51e0-357b-5711-b439-62a9aa58b42c")
+	)
+	(label "STBY2"
+		(at 165.1 48.26 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "5e430609-1123-59dc-a1f9-c42b28c28d53")
+	)
+	(label "STBY2"
+		(at 165.1 80.01 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "21b41516-1c9e-56b8-ba64-99d578c43c6b")
+	)
+	(label "STBY2"
+		(at 165.1 111.76 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6dd83000-1c8c-5043-b9e3-2613f5d1b190")
+	)
+	(label "STBY3"
+		(at 205.74 48.26 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "26cc9c69-e8ff-527c-92f8-1171db056d80")
+	)
+	(label "STBY3"
+		(at 205.74 80.01 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c294a3e4-c6c3-5e79-af4d-d46f0aebc31d")
+	)
+	(label "STBY3"
+		(at 205.74 111.76 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "cc12fa36-a8e8-5bc1-bf88-cec5de8b940a")
+	)
+	(label "GPIO23"
+		(at 26.67 120.65 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "6afee35b-1f59-598d-aa15-f31bfada2f53")
+	)
+	(label "GPIO22"
+		(at 60.96 102.87 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "fa2fa837-2b3e-5908-9673-a9eadfd38c3c")
+	)
+	(label "GPIO1_TX"
+		(at 60.96 107.95 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3341c15e-9ce3-5084-a07f-4fe14529e9a5")
+	)
+	(label "GPIO3_RX"
+		(at 60.96 110.49 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "bfb46389-a7d0-5260-8ae1-ae2403709fab")
+	)
+	(label "GPIO21"
+		(at 60.96 105.41 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7b8a07d4-0728-55e5-8b6f-5d05f22ae23a")
+	)
+	(label "GPIO19"
+		(at 26.67 123.19 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "d51bb93a-680a-5929-a2ff-e88d86b6fffc")
+	)
+	(label "GPIO18"
+		(at 26.67 125.73 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "8237b337-db0c-5ebd-a488-ae28c9c3b979")
+	)
+	(label "GPIO5"
+		(at 26.67 100.33 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "1a189c0e-a558-5370-89de-400b5e865961")
+	)
+	(label "GPIO17"
+		(at 26.67 97.79 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "2b7419ba-607c-5ecb-964e-7c18892d4ff0")
+	)
+	(label "GPIO16"
+		(at 26.67 95.25 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "7946ad0b-da99-580f-bc5a-71c8b39eaa17")
+	)
+	(label "GPIO4"
+		(at 26.67 92.71 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "3a13afbe-dd9a-577c-8a62-14ee20e80013")
+	)
+	(label "GPIO0"
+		(at 26.67 90.17 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "82d3c2ec-05a4-558e-be5c-795b9830890c")
+	)
+	(label "GPIO2"
+		(at 26.67 87.63 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "7fee7c1e-9cd2-5545-9d2a-076400fbb3f6")
+	)
+	(label "GPIO15"
+		(at 26.67 85.09 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "393b7574-f7e2-5017-ac5f-72ada191f7a5")
+	)
+	(label "EN"
+		(at 60.96 95.25 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "d324da4a-49d5-5482-8016-d803bdc207f5")
+	)
+	(label "GPIO36"
+		(at 60.96 92.71 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "91e3b2e5-4e42-58a6-83d7-25b791cb4232")
+	)
+	(label "GPIO39"
+		(at 60.96 90.17 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7cccd28f-aaf9-586f-af8d-b0e70a7d823e")
+	)
+	(label "GPIO34"
+		(at 60.96 87.63 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "157416ad-0ad1-53fe-83fb-ac3cacf3b84f")
+	)
+	(label "GPIO35"
+		(at 60.96 85.09 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e07bac5c-edce-591e-b817-c235bfbde643")
+	)
+	(label "GPIO32"
+		(at 26.67 129.54 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "c04c645b-ada6-5ede-b914-96a605496520")
+	)
+	(label "GPIO33"
+		(at 26.67 132.08 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "e78d0e0e-ae6a-5c63-9c2b-1f7d553b7cdb")
+	)
+	(no_connect
+		(at 39.37 137.16)
+		(uuid "972236b5-a0c9-5c8f-b6c3-21e615d831e3")
+	)
+	(text "FIXES vs original: (1) ESP32 5Vin now +5V from buck module (was raw battery); (2) STBY per group via SW1..SW3 (was always on); (3) ESP32 pin 21 (CMD) no longer tied to GND; (4) VM bulk caps, expansion header J3 + ESP32 GPIO break-out headers J4/J5 for a top PCB, mounting holes, screw terminals added."
+		(exclude_from_sim no)
+		(at 30.0 160.0 0)
+		(effects
+			(font
+				(size 1.5 1.5)
+			)
+			(justify left bottom)
+		)
+		(uuid "a7789e57-1d8f-5c7f-aea3-52ab1c42498b")
 	)
 	(sheet_instances
 		(path "/"

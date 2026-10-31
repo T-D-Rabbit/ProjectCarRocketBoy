@@ -1,0 +1,82 @@
+(footprint "TerminalBlock_5.08mm_2P_Vertical"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "2-pole 5.08 mm screw terminal (KF301-5.0-2P style), pin 1 at origin, pin 2 +5.08 mm in Y")
+	(property "Reference" "REF**"
+		(at -6.200 2.540 0)
+		(layer "F.SilkS")
+		(uuid "f7676b68-0ac6-43ae-8f51-f447227e4cde")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "TerminalBlock_5.08mm_2P_Vertical"
+		(at 6.000 2.540 0)
+		(layer "F.Fab")
+		(uuid "0675c358-2e98-44cf-b9fd-02a1c36d1cf5")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0.000 0.000 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "ae159332-6cc3-497c-a016-7e28757ad5c3")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" "2-pole 5.08 mm screw terminal (KF301-5.0-2P style), pin 1 at origin, pin 2 +5.08 mm in Y"
+		(at 0.000 0.000 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "d683ac59-9b4b-4508-bdb3-f0ffc8e10f38")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_rect
+		(start -4.000 -3.200)
+		(end 4.000 8.280)
+		(stroke
+			(width 0.12)
+			(type default)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "ba9e2f3e-0279-4cbf-a298-afc94aff3333")
+	)
+	(pad "1" thru_hole rect
+		(at 0.000 0.000)
+		(size 3.200 3.200)
+		(drill 1.6)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "13d37ab0-47fe-4f22-a0a5-ac65dda226f0")
+	)
+	(pad "2" thru_hole circle
+		(at 0.000 5.080)
+		(size 3.200 3.200)
+		(drill 1.6)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "7147379b-f337-46af-a52f-516142490efa")
+	)
+	(embedded_fonts no)
+)

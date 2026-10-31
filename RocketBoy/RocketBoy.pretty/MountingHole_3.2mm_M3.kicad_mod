@@ -1,0 +1,73 @@
+(footprint "MountingHole_3.2mm_M3"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "M3 mounting hole, 3.2 mm drill")
+	(property "Reference" "REF**"
+		(at 0.000 -5.200 0)
+		(layer "F.SilkS")
+		(uuid "b732a42e-a54d-4681-a4c0-236f35296186")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "MountingHole_3.2mm_M3"
+		(at 0.000 5.200 0)
+		(layer "F.Fab")
+		(uuid "a23bfff1-1c6b-41a9-b0f9-1581d93a7a06")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0.000 0.000 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "cb9cb6ae-f953-4cb5-ba4c-6f071162f6bd")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" "M3 mounting hole, 3.2 mm drill"
+		(at 0.000 0.000 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "83e18d37-2b4d-41a6-94a7-3564e05bc8b2")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_circle
+		(center 0.000 0.000)
+		(end 3.600 0.000)
+		(stroke
+			(width 0.12)
+			(type default)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "b795b383-9bd3-4dc4-aff2-625e87c75887")
+	)
+	(pad "" np_thru_hole circle
+		(at 0.000 0.000)
+		(size 3.200 3.200)
+		(drill 3.200)
+		(layers "*.Cu" "*.Mask")
+		(uuid "f4fef554-3e20-46e0-a742-8e1807ec61a4")
+	)
+	(embedded_fonts no)
+)
