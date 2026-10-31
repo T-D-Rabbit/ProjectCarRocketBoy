@@ -1,0 +1,90 @@
+(footprint "SPDT_Slide_1x03_P2.54mm"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "SPDT slide switch (SS12D00 / SS-12D / 3-pin toggle), 3 x 2.54 mm in line")
+	(property "Reference" "REF**"
+		(at 0.000 -3.800 0)
+		(layer "F.SilkS")
+		(uuid "87ecb129-0026-4907-aa4a-28a3af7b87cb")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "SPDT_Slide_1x03_P2.54mm"
+		(at 0.000 3.800 0)
+		(layer "F.Fab")
+		(uuid "7b10a118-9281-4378-9933-ad11662e5198")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0.000 0.000 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "c74e4741-b2b4-4c81-9665-a9ee8558f2ed")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" "SPDT slide switch (SS12D00 / SS-12D / 3-pin toggle), 3 x 2.54 mm in line"
+		(at 0.000 0.000 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "465f01d4-6d32-4646-a0b6-8a677afff074")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_rect
+		(start -4.500 -2.200)
+		(end 4.500 2.200)
+		(stroke
+			(width 0.12)
+			(type default)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "4460084a-d9d2-4a55-9835-4b5b99b8c105")
+	)
+	(pad "1" thru_hole rect
+		(at -2.540 0.000)
+		(size 1.800 1.800)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "9bcc9826-c0c5-402c-9824-bb0ef2286f81")
+	)
+	(pad "2" thru_hole circle
+		(at 0.000 0.000)
+		(size 1.800 1.800)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "dc508469-cb9c-49c7-a689-ce18bd38fe56")
+	)
+	(pad "3" thru_hole circle
+		(at 2.540 0.000)
+		(size 1.800 1.800)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "1d112712-e486-4d4a-b539-f45338660713")
+	)
+	(embedded_fonts no)
+)
