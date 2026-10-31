@@ -6,7 +6,6 @@
   out/rocketboy.obj + .mtl          coloured OBJ with 3 objects (body / wheel_right / wheel_left)
   out/preview_*.png                 still renders
   out/rocketboy_route.gif           animation of the hard-coded route
-  out/rocketboy_viewer.html         self-contained interactive 3D viewer + animation (open in any browser)
 """
 import os, sys, json, math, time
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -121,20 +120,3 @@ dt_real = STEP / route["rec_hz"]
 write_gif(os.path.join(OUT, "rocketboy_route.gif"), gif_frames, W, H, pal, delay_cs=max(2, int(round(dt_real * 100 / 1.0))))
 print("gif: %d frames in %.0f s, real-time playback" % (len(gif_frames), time.time() - t0))
 
-# ------------------------------------------------------------------ interactive viewer
-def pack(mesh):
-    p, m = [], []
-    for a, b, c, mt in mesh.tris:
-        for v in (a, b, c):
-            p += [round(v[0], 1), round(v[1], 1), round(v[2], 1)]
-        m.append(mt)
-    return {"p": p, "m": m}
-
-
-data = {"rw": BM.R_W, "mats": [[n, c[0], c[1], c[2]] for i, (n, c) in sorted(BM.MATERIALS.items())],
-        "body": pack(groups["body"]), "wheel": pack(groups["wheel_right"])}
-html = open(os.path.join(HERE, "viewer_template.html")).read()
-html = html.replace("/*DATA*/null", json.dumps(data, separators=(",", ":")))
-html = html.replace("/*ROUTE*/null", json.dumps({"frames": frames_data}, separators=(",", ":")))
-open(os.path.join(OUT, "rocketboy_viewer.html"), "w").write(html)
-print("viewer: %.0f kB" % (len(html) / 1024))

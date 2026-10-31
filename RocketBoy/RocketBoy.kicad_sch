@@ -2472,6 +2472,568 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "RocketBoy:Conn_01x16"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 3.0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x16"
+				(at 2.54 5.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic 1x16 connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x16_1_1"
+				(rectangle
+					(start -1.27 1.27)
+					(end 5.08 -39.37)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at -5.08 0.0 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -5.08 0)
+					(length 3.81)
+					(name "Pin_3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -7.62 0)
+					(length 3.81)
+					(name "Pin_4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -10.16 0)
+					(length 3.81)
+					(name "Pin_5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -12.7 0)
+					(length 3.81)
+					(name "Pin_6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -15.24 0)
+					(length 3.81)
+					(name "Pin_7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -17.78 0)
+					(length 3.81)
+					(name "Pin_8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -20.32 0)
+					(length 3.81)
+					(name "Pin_9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -22.86 0)
+					(length 3.81)
+					(name "Pin_10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -25.4 0)
+					(length 3.81)
+					(name "Pin_11"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "11"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -27.94 0)
+					(length 3.81)
+					(name "Pin_12"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "12"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -30.48 0)
+					(length 3.81)
+					(name "Pin_13"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "13"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -33.02 0)
+					(length 3.81)
+					(name "Pin_14"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "14"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -35.56 0)
+					(length 3.81)
+					(name "Pin_15"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "15"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -38.1 0)
+					(length 3.81)
+					(name "Pin_16"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "16"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "RocketBoy:Conn_01x08"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 3.0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x08"
+				(at 2.54 5.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic 1x08 connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x08_1_1"
+				(rectangle
+					(start -1.27 1.27)
+					(end 5.08 -19.05)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at -5.08 0.0 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -5.08 0)
+					(length 3.81)
+					(name "Pin_3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -7.62 0)
+					(length 3.81)
+					(name "Pin_4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -10.16 0)
+					(length 3.81)
+					(name "Pin_5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -12.7 0)
+					(length 3.81)
+					(name "Pin_6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -15.24 0)
+					(length 3.81)
+					(name "Pin_7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -17.78 0)
+					(length 3.81)
+					(name "Pin_8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "RocketBoy:MountingHole"
 			(pin_names
 				(offset 0)
@@ -9698,32 +10260,32 @@
 		(uuid "88ac996f-1a74-5ff8-8256-577d3a046a5c")
 	)
 	(symbol
-		(lib_id "RocketBoy:MountingHole")
-		(at 240.0 238.76 0)
+		(lib_id "RocketBoy:Conn_01x16")
+		(at 294.64 215.9 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "a3f7bcf7-59ac-5514-b854-07e643d52f2b")
-		(property "Reference" "H1"
-			(at 240.0 242.76 0)
+		(uuid "6f567737-9e45-579f-86d9-2881de8fb6bd")
+		(property "Reference" "J4"
+			(at 294.64 219.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "M3"
-			(at 242.54 245.26 0)
+		(property "Value" "ESP_GPIO_EAST"
+			(at 297.18 222.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "RocketBoy:MountingHole_3.2mm_M3"
-			(at 240.0 238.76 0)
+		(property "Footprint" "RocketBoy:PinHeader_1x16_P2.54mm_Vertical"
+			(at 294.64 215.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9732,7 +10294,606 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 240.0 238.76 0)
+			(at 294.64 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Break-out of the east ESP32 pin row (DevKit pads 19..4): GND, GPIO23/22/1/3/21, GND, GPIO19/18/5/17/16/4/0/2/15. Flash pins GPIO6-11 are NOT broken out."
+			(at 294.64 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4a601004-416e-53b6-8447-23c344cb6fa3")
+		)
+		(pin "2"
+			(uuid "60eb653f-f108-5223-baaf-d562bcf18839")
+		)
+		(pin "3"
+			(uuid "3855fd89-51ca-5e7e-8b27-f1f0ab3f387d")
+		)
+		(pin "4"
+			(uuid "f0eaafff-9478-5402-aae3-2d11c4d5d57e")
+		)
+		(pin "5"
+			(uuid "0f98907a-b545-5298-b05a-d228cd0ba077")
+		)
+		(pin "6"
+			(uuid "6b086f64-6f7c-545d-8eea-7329c2399f4c")
+		)
+		(pin "7"
+			(uuid "66d13c4b-a578-54ea-808d-d71b156049ad")
+		)
+		(pin "8"
+			(uuid "81add34e-5c60-5a72-b4ea-18861186753f")
+		)
+		(pin "9"
+			(uuid "cd8e85da-6d4d-5f51-ab57-acfa59d15386")
+		)
+		(pin "10"
+			(uuid "64ade2db-22e4-5f20-b603-1f92348d00d1")
+		)
+		(pin "11"
+			(uuid "6d077404-9330-5701-a0fe-d2f1f6eaad26")
+		)
+		(pin "12"
+			(uuid "de110fd8-462d-598a-a7e7-83ba44159aeb")
+		)
+		(pin "13"
+			(uuid "d48ff369-db9b-58d4-822a-0b0b4f9cd893")
+		)
+		(pin "14"
+			(uuid "6e857cff-f59c-5952-a560-88070fb3e20e")
+		)
+		(pin "15"
+			(uuid "a8f515c2-47d7-5f1c-8779-731f9022e5ec")
+		)
+		(pin "16"
+			(uuid "5fb106fa-3161-5a88-a4dc-6e863d1076ca")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "J4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 289.56 215.9 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "66b524d7-c1a7-5b00-b693-e9d6184abbcd")
+		(property "Reference" "#PWR053"
+			(at 289.56 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 282.56 219.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 289.56 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 289.56 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\""
+			(at 289.56 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7bf356ab-cc53-5a21-b440-0978b57137aa")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR053")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(label "GPIO23"
+		(at 289.56 218.44 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "15a84d22-a934-50dc-9ffa-404af6c35533")
+	)
+	(label "GPIO22"
+		(at 289.56 220.98 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "2ec61380-9094-58cb-983e-a8f7737375dc")
+	)
+	(label "GPIO1_TX"
+		(at 289.56 223.52 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "c517debd-11b3-5168-b3e8-9fca1b1a2e9e")
+	)
+	(label "GPIO3_RX"
+		(at 289.56 226.06 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "25126c1f-7737-5cfe-a8b4-f373da56759a")
+	)
+	(label "GPIO21"
+		(at 289.56 228.6 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "499ed737-4ff2-52d7-8777-a70b21aa6ede")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 289.56 231.14 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b86ae38a-e1bd-5756-a9c2-a7ac078b2c56")
+		(property "Reference" "#PWR054"
+			(at 289.56 237.48999999999998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 282.56 234.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 289.56 231.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 289.56 231.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\""
+			(at 289.56 231.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7e39a2f7-adfc-53b4-84f6-e7dee32e2d9a")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR054")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(label "GPIO19"
+		(at 289.56 233.68 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "6bdd108f-37ef-5cd8-93ee-54b2a16371a2")
+	)
+	(label "GPIO18"
+		(at 289.56 236.22 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "5555a9e9-1773-59f1-a15e-0e8c887cc227")
+	)
+	(label "GPIO5"
+		(at 289.56 238.76 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "06ba7831-14d6-57ae-bd9d-d14b2176d7ed")
+	)
+	(label "GPIO17"
+		(at 289.56 241.3 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "df68ff04-0ebf-500f-9d6f-4f2137c7779c")
+	)
+	(label "GPIO16"
+		(at 289.56 243.84 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "c7ceb470-58a3-5b13-97f1-b5aef050bb10")
+	)
+	(label "GPIO4"
+		(at 289.56 246.38 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "f33d71e8-14b5-512e-a11b-54bc3c8fac28")
+	)
+	(label "GPIO0"
+		(at 289.56 248.92 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "a9fac12e-d546-5997-a426-b4171802b692")
+	)
+	(label "GPIO2"
+		(at 289.56 251.46 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "84948016-c0de-57e1-a3a4-7842ca2286e4")
+	)
+	(label "GPIO15"
+		(at 289.56 254.0 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "360d0473-28f9-513c-956d-962a170b34db")
+	)
+	(symbol
+		(lib_id "RocketBoy:Conn_01x08")
+		(at 355.6 175.26 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "47e69374-ab07-52a4-8897-439698a36d2c")
+		(property "Reference" "J5"
+			(at 355.6 179.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "ESP_GPIO_WEST"
+			(at 358.14000000000004 181.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "RocketBoy:PinHeader_1x08_P2.54mm_Vertical"
+			(at 355.6 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 355.6 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Break-out of the west ESP32 pin row (DevKit pads 38..31): 3V3, EN, GPIO36/39/34/35 (input only), GPIO32/33"
+			(at 355.6 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "dcb810c5-32e4-5e14-8e6a-cb4738529096")
+		)
+		(pin "2"
+			(uuid "f2a8a0b9-ac75-544b-81e6-da076691626f")
+		)
+		(pin "3"
+			(uuid "5e3c0296-6556-5e84-a531-6886c4ea7d1b")
+		)
+		(pin "4"
+			(uuid "10b14c4f-bfe0-5584-aab1-2a03266e7ade")
+		)
+		(pin "5"
+			(uuid "bc9f3c32-c7fa-5510-9e66-88611681da95")
+		)
+		(pin "6"
+			(uuid "2d2d9e06-841c-5a47-a492-385d402131bc")
+		)
+		(pin "7"
+			(uuid "cc547c60-ef1e-574b-afa5-33f706297124")
+		)
+		(pin "8"
+			(uuid "dde2792a-348d-5833-ac5b-a6fcb169041f")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "J5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCCQ")
+		(at 350.52 175.26 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7484abe1-e6f9-551d-bd29-d26a1fafcd24")
+		(property "Reference" "#PWR055"
+			(at 350.52 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VCCQ"
+			(at 343.52 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 350.52 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 350.52 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCCQ\""
+			(at 350.52 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c818ac73-028e-53a2-8859-f5f6b2d64369")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR055")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(label "EN"
+		(at 350.52 177.8 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "40c62ff5-3845-554e-a810-e37f4611e838")
+	)
+	(label "GPIO36"
+		(at 350.52 180.34 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "5a0a4261-e130-5991-b0e6-6421b36553e2")
+	)
+	(label "GPIO39"
+		(at 350.52 182.88 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "8761d064-7a70-50a6-99d0-7a4c9fc81936")
+	)
+	(label "GPIO34"
+		(at 350.52 185.42 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "0cd4f7e1-d180-5e8a-a460-eb21f1d5a6eb")
+	)
+	(label "GPIO35"
+		(at 350.52 187.96 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "e53e76ab-4947-57b6-8af1-0b77aaa7b733")
+	)
+	(label "GPIO32"
+		(at 350.52 190.5 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "4d1a0101-3857-5b19-9a9e-25bbacde3cbf")
+	)
+	(label "GPIO33"
+		(at 350.52 193.04 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "366d2983-4b08-5dd4-b11c-d6dd66ceb2ad")
+	)
+	(symbol
+		(lib_id "RocketBoy:MountingHole")
+		(at 240.0 275.0 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "a3f7bcf7-59ac-5514-b854-07e643d52f2b")
+		(property "Reference" "H1"
+			(at 240.0 279.0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "M3"
+			(at 242.54 281.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "RocketBoy:MountingHole_3.2mm_M3"
+			(at 240.0 275.0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 240.0 275.0 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9741,7 +10902,7 @@
 			)
 		)
 		(property "Description" "M3 mounting hole (chassis pattern)"
-			(at 240.0 238.76 0)
+			(at 240.0 275.0 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9760,7 +10921,7 @@
 	)
 	(symbol
 		(lib_id "RocketBoy:MountingHole")
-		(at 260.0 238.76 0)
+		(at 260.0 275.0 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -9768,7 +10929,7 @@
 		(dnp no)
 		(uuid "28b76287-49cb-564f-a732-8ac1130073f3")
 		(property "Reference" "H2"
-			(at 260.0 242.76 0)
+			(at 260.0 279.0 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9776,7 +10937,7 @@
 			)
 		)
 		(property "Value" "M3"
-			(at 262.54 245.26 0)
+			(at 262.54 281.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9784,7 +10945,7 @@
 			)
 		)
 		(property "Footprint" "RocketBoy:MountingHole_3.2mm_M3"
-			(at 260.0 238.76 0)
+			(at 260.0 275.0 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9793,7 +10954,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 260.0 238.76 0)
+			(at 260.0 275.0 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9802,7 +10963,7 @@
 			)
 		)
 		(property "Description" "M3 mounting hole (chassis pattern)"
-			(at 260.0 238.76 0)
+			(at 260.0 275.0 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9821,7 +10982,7 @@
 	)
 	(symbol
 		(lib_id "RocketBoy:MountingHole")
-		(at 280.0 238.76 0)
+		(at 280.0 275.0 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -9829,7 +10990,7 @@
 		(dnp no)
 		(uuid "2b7b2bb2-b385-5650-b9d5-f514f482f0f7")
 		(property "Reference" "H3"
-			(at 280.0 242.76 0)
+			(at 280.0 279.0 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9837,7 +10998,7 @@
 			)
 		)
 		(property "Value" "M3"
-			(at 282.54 245.26 0)
+			(at 282.54 281.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9845,7 +11006,7 @@
 			)
 		)
 		(property "Footprint" "RocketBoy:MountingHole_3.2mm_M3"
-			(at 280.0 238.76 0)
+			(at 280.0 275.0 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9854,7 +11015,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 280.0 238.76 0)
+			(at 280.0 275.0 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9863,7 +11024,7 @@
 			)
 		)
 		(property "Description" "M3 mounting hole (chassis pattern)"
-			(at 280.0 238.76 0)
+			(at 280.0 275.0 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9882,7 +11043,7 @@
 	)
 	(symbol
 		(lib_id "RocketBoy:MountingHole")
-		(at 300.0 238.76 0)
+		(at 300.0 275.0 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -9890,7 +11051,7 @@
 		(dnp no)
 		(uuid "877845c2-69a1-5f71-9b16-8c722fa0a8b3")
 		(property "Reference" "H4"
-			(at 300.0 242.76 0)
+			(at 300.0 279.0 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9898,7 +11059,7 @@
 			)
 		)
 		(property "Value" "M3"
-			(at 302.54 245.26 0)
+			(at 302.54 281.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9906,7 +11067,7 @@
 			)
 		)
 		(property "Footprint" "RocketBoy:MountingHole_3.2mm_M3"
-			(at 300.0 238.76 0)
+			(at 300.0 275.0 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9915,7 +11076,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 300.0 238.76 0)
+			(at 300.0 275.0 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9924,7 +11085,7 @@
 			)
 		)
 		(property "Description" "M3 mounting hole (chassis pattern)"
-			(at 300.0 238.76 0)
+			(at 300.0 275.0 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10097,11 +11258,221 @@
 		)
 		(uuid "cc12fa36-a8e8-5bc1-bf88-cec5de8b940a")
 	)
+	(label "GPIO23"
+		(at 26.67 120.65 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "6afee35b-1f59-598d-aa15-f31bfada2f53")
+	)
+	(label "GPIO22"
+		(at 60.96 102.87 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "fa2fa837-2b3e-5908-9673-a9eadfd38c3c")
+	)
+	(label "GPIO1_TX"
+		(at 60.96 107.95 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3341c15e-9ce3-5084-a07f-4fe14529e9a5")
+	)
+	(label "GPIO3_RX"
+		(at 60.96 110.49 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "bfb46389-a7d0-5260-8ae1-ae2403709fab")
+	)
+	(label "GPIO21"
+		(at 60.96 105.41 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7b8a07d4-0728-55e5-8b6f-5d05f22ae23a")
+	)
+	(label "GPIO19"
+		(at 26.67 123.19 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "d51bb93a-680a-5929-a2ff-e88d86b6fffc")
+	)
+	(label "GPIO18"
+		(at 26.67 125.73 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "8237b337-db0c-5ebd-a488-ae28c9c3b979")
+	)
+	(label "GPIO5"
+		(at 26.67 100.33 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "1a189c0e-a558-5370-89de-400b5e865961")
+	)
+	(label "GPIO17"
+		(at 26.67 97.79 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "2b7419ba-607c-5ecb-964e-7c18892d4ff0")
+	)
+	(label "GPIO16"
+		(at 26.67 95.25 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "7946ad0b-da99-580f-bc5a-71c8b39eaa17")
+	)
+	(label "GPIO4"
+		(at 26.67 92.71 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "3a13afbe-dd9a-577c-8a62-14ee20e80013")
+	)
+	(label "GPIO0"
+		(at 26.67 90.17 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "82d3c2ec-05a4-558e-be5c-795b9830890c")
+	)
+	(label "GPIO2"
+		(at 26.67 87.63 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "7fee7c1e-9cd2-5545-9d2a-076400fbb3f6")
+	)
+	(label "GPIO15"
+		(at 26.67 85.09 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "393b7574-f7e2-5017-ac5f-72ada191f7a5")
+	)
+	(label "EN"
+		(at 60.96 95.25 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "d324da4a-49d5-5482-8016-d803bdc207f5")
+	)
+	(label "GPIO36"
+		(at 60.96 92.71 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "91e3b2e5-4e42-58a6-83d7-25b791cb4232")
+	)
+	(label "GPIO39"
+		(at 60.96 90.17 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7cccd28f-aaf9-586f-af8d-b0e70a7d823e")
+	)
+	(label "GPIO34"
+		(at 60.96 87.63 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "157416ad-0ad1-53fe-83fb-ac3cacf3b84f")
+	)
+	(label "GPIO35"
+		(at 60.96 85.09 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e07bac5c-edce-591e-b817-c235bfbde643")
+	)
+	(label "GPIO32"
+		(at 26.67 129.54 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "c04c645b-ada6-5ede-b914-96a605496520")
+	)
+	(label "GPIO33"
+		(at 26.67 132.08 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "e78d0e0e-ae6a-5c63-9c2b-1f7d553b7cdb")
+	)
 	(no_connect
 		(at 39.37 137.16)
 		(uuid "972236b5-a0c9-5c8f-b6c3-21e615d831e3")
 	)
-	(text "FIXES vs original: (1) ESP32 5Vin now +5V from buck module (was raw battery); (2) STBY per group via SW1..SW3 (was always on); (3) ESP32 pin 21 (CMD) no longer tied to GND; (4) VM bulk caps, expansion header J3 for a second PCB, mounting holes, screw terminals added."
+	(text "FIXES vs original: (1) ESP32 5Vin now +5V from buck module (was raw battery); (2) STBY per group via SW1..SW3 (was always on); (3) ESP32 pin 21 (CMD) no longer tied to GND; (4) VM bulk caps, expansion header J3 + ESP32 GPIO break-out headers J4/J5 for a top PCB, mounting holes, screw terminals added."
 		(exclude_from_sim no)
 		(at 30.0 160.0 0)
 		(effects

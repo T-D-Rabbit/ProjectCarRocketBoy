@@ -23,12 +23,14 @@
 Per-module current peaks during the launch (channel A / left motor), 1 group enabled: 2.57, 1.79, 1.86 A
 A hard 100 % duty step makes the motor draw its inrush (6.2 A) before back-EMF builds up -> **ramp the PWM (>= 100 ms) in firmware**; the 3 modules of one group then stay inside the 1.2 A continuous rating.
 
-## S2 - blocked wheels (motors stalled), full duty
+## S2 - blocked wheels (jammed gearbox / wheel held still), full duty
 | groups on | modules per motor | stall current per motor [A] | rated (cont.) capacity [A] | pulse capacity [A] | verdict | battery V | battery current [A] |
 |---|---|---|---|---|---|---|---|
 | 1 | 3 | 5.62 | 3.6 | 9.6 | pulse only (<=3.2 A/module) (worst module 2.57 A) | 11.12 | 11.6 |
 | 2 | 6 | 5.86 | 7.2 | 19.2 | pulse only (<=3.2 A/module) (worst module 1.35 A) | 11.08 | 12.1 |
 | 3 | 9 | 5.93 | 10.8 | 28.8 | OK (worst module 0.94 A) | 11.07 | 12.2 |
+
+Note: with free tyres on a floor the wheels slip before the motor stalls (traction limit, see S3, about 1.4 A per motor), so this case needs a jammed gearbox or a wheel held by an obstacle.
 
 Stall is the only case that needs more than one group; with 2-3 groups enabled a stalled motor is inside the pulse rating. The TB6612FNG has thermal shutdown but **no current limit**, so stall detection in firmware is recommended.
 

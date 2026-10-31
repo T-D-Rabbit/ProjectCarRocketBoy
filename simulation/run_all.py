@@ -91,7 +91,7 @@ md("A hard 100 %% duty step makes the motor draw its inrush (%.1f A) before back
 md()
 
 # ------------------------------------------------------------------ S2 stall
-md("## S2 - blocked wheels (motors stalled), full duty")
+md("## S2 - blocked wheels (jammed gearbox / wheel held still), full duty")
 md("| groups on | modules per motor | stall current per motor [A] | rated (cont.) capacity [A] | pulse capacity [A] | verdict | battery V | battery current [A] |")
 md("|---|---|---|---|---|---|---|---|")
 for name, g, n in (("1", G1, 3), ("2", G2, 6), ("3", G3, 9)):
@@ -102,6 +102,8 @@ for name, g, n in (("1", G1, 3), ("2", G2, 6), ("3", G3, 9)):
     worst = max(max(r.bank.stat["A"]), max(r.bank.stat["B"]))
     verdict = "OK" if worst <= P.DRIVER["I_CONT"] else ("pulse only (<=3.2 A/module)" if worst <= P.DRIVER["I_PEAK"] else "OVERLOAD")
     md("| %s | %d | %.2f | %.1f | %.1f | %s (worst module %.2f A) | %.2f | %.1f |" % (name, n, ist, cont, pk, verdict, worst, r.log[-1]["vbat"], r.log[-1]["ibat"]))
+md()
+md("Note: with free tyres on a floor the wheels slip before the motor stalls (traction limit, see S3, about 1.4 A per motor), so this case needs a jammed gearbox or a wheel held by an obstacle.")
 md()
 md("Stall is the only case that needs more than one group; with 2-3 groups enabled a stalled motor is inside the pulse rating. "
    "The TB6612FNG has thermal shutdown but **no current limit**, so stall detection in firmware is recommended.")

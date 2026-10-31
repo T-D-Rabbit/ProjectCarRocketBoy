@@ -182,14 +182,14 @@ def build_pcb_stack():
         elif ref.startswith("C"):
             m.cyl("z", (wx, wy, z0 + 8.0), 5.0, 16.0, MID["cap"], 28)
             m.cyl("z", (wx, wy, z0 + 16.05), 4.2, 0.2, MID["steel"], 20)
-        elif ref in ("J1", "J2", "J3"):
-            n = 2 if ref != "J3" else 10
+        elif ref in ("J1", "J2", "J3", "J4", "J5"):
+            n = {"J1": 2, "J2": 2, "J3": 10, "J4": 16, "J5": 8}[ref]
             hy = y + (n - 1) * 1.27
             cx, cy = W(x, hy)
             m.box(cx, cy, z0 + 1.25, 2.54, n * 2.54, 2.5, MID["black"])
             for k in range(n):
                 px_, py_ = W(x, y + k * 2.54)
-                m.box(px_, py_, z0 + 2.5 + 4.0, 0.64, 0.64, 11.5 if ref == "J3" else 8.0, MID["gold"])
+                m.box(px_, py_, z0 + 2.5 + 4.0, 0.64, 0.64, 11.5 if ref in ("J3", "J4", "J5") else 8.0, MID["gold"])
     return m
 
 

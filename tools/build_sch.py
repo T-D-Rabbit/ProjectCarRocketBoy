@@ -103,6 +103,8 @@ def lib_symbols(prefix):
         box_symbol(prefix + "CP_Polarized", "C", "Polarized capacitor", [("1", "+", ET), ("2", "-", ET)]),
         box_symbol(prefix + "Conn_01x02", "J", "Generic 1x02 connector", [("1", "Pin_1", ET), ("2", "Pin_2", ET)]),
         box_symbol(prefix + "Conn_01x10", "J", "Generic 1x10 connector", [(str(i), "Pin_%d" % i, ET) for i in range(1, 11)]),
+        box_symbol(prefix + "Conn_01x16", "J", "Generic 1x16 connector", [(str(i), "Pin_%d" % i, ET) for i in range(1, 17)]),
+        box_symbol(prefix + "Conn_01x08", "J", "Generic 1x08 connector", [(str(i), "Pin_%d" % i, ET) for i in range(1, 9)]),
         box_symbol(prefix + "MountingHole", "H", "Mounting hole", [], shape="hole"),
     ]
     return syms
@@ -234,8 +236,8 @@ POWER_NETS = {"GND", "VCCQ", "VBAT", "+5V"}
 SYM_POS = {
     "SW1": (50.8, 175.26), "SW2": (111.76, 175.26), "SW3": (172.72, 175.26),
     "C1": (50.8, 215.9), "C2": (111.76, 215.9), "C3": (172.72, 215.9),
-    "J1": (233.68, 175.26), "J2": (233.68, 200.66), "J3": (294.64, 175.26),
-    "H1": (240.0, 238.76), "H2": (260.0, 238.76), "H3": (280.0, 238.76), "H4": (300.0, 238.76),
+    "J1": (233.68, 175.26), "J2": (233.68, 200.66), "J3": (294.64, 175.26), "J4": (294.64, 215.9), "J5": (355.6, 175.26),
+    "H1": (240.0, 275.0), "H2": (260.0, 275.0), "H3": (280.0, 275.0), "H4": (300.0, 275.0),
 }
 for ref, part in P.PARTS.items():
     x, y = SYM_POS[ref]
@@ -268,12 +270,27 @@ for xv, xs in STBY_X.items():
         new_items.append(["label", Q("STBY%d" % g), ["at", xs, y, 90], eff(1.27, False, "left bottom"),
                           ["uuid", Q(U("stby-%d-%s" % (g, y)))]])
 
+# labels for the break-out pins on the ESP32 symbol (pin-end coordinates of the symbol, see sch_netlist extraction)
+ESP_PIN_POS = {  # pad -> (x, y, side)
+    "4": (26.67, 85.09, "L"), "5": (26.67, 87.63, "L"), "6": (26.67, 90.17, "L"), "7": (26.67, 92.71, "L"), "8": (26.67, 95.25, "L"),
+    "9": (26.67, 97.79, "L"), "10": (26.67, 100.33, "L"), "18": (26.67, 120.65, "L"), "12": (26.67, 123.19, "L"), "11": (26.67, 125.73, "L"),
+    "32": (26.67, 129.54, "L"), "31": (26.67, 132.08, "L"),
+    "33": (60.96, 85.09, "R"), "34": (60.96, 87.63, "R"), "35": (60.96, 90.17, "R"), "36": (60.96, 92.71, "R"), "37": (60.96, 95.25, "R"),
+    "17": (60.96, 102.87, "R"), "14": (60.96, 105.41, "R"), "16": (60.96, 107.95, "R"), "15": (60.96, 110.49, "R"),
+}
+for pad, net in P.ESP_NETS.items():
+    if pad in ESP_PIN_POS and net and net.startswith("/GPIO") or pad in ("37",):
+        x, y, side = ESP_PIN_POS[pad]
+        new_items.append(label(net.lstrip("/"), x, y, side))
+n_lbl = sum(1 for pad, net in P.ESP_NETS.items() if pad in ESP_PIN_POS and net)
+assert n_lbl == 21, n_lbl
+
 # no-connect on ESP32 pin 21 (CMD)
 new_items.append(["no_connect", ["at", 39.37, 137.16], ["uuid", Q(U("nc-esp-21"))]])
 
 # note text
 new_items.append(["text", Q("FIXES vs original: (1) ESP32 5Vin now +5V from buck module (was raw battery); (2) STBY per group via SW1..SW3 (was always on); "
-                            "(3) ESP32 pin 21 (CMD) no longer tied to GND; (4) VM bulk caps, expansion header J3 for a second PCB, mounting holes, screw terminals added."),
+                            "(3) ESP32 pin 21 (CMD) no longer tied to GND; (4) VM bulk caps, expansion header J3 + ESP32 GPIO break-out headers J4/J5 for a top PCB, mounting holes, screw terminals added."),
                   ["exclude_from_sim", "no"], ["at", 30.0, 160.0, 0], eff(1.5, False, "left bottom"), ["uuid", Q(U("note-fixes"))]])
 
 add_text = "".join("\t" + ser(it, 1) + "\n" for it in new_items)

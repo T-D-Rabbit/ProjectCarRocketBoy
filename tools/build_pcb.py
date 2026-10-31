@@ -443,6 +443,8 @@ FPDEFS = {
                     descr="Radial electrolytic D10 mm, 5.0 mm pitch, pin 1 = +"),
     P.FP_HDR2: hdr_def(P.FP_HDR2, 2),
     P.FP_HDR10: hdr_def(P.FP_HDR10, 10),
+    P.FP_HDR16: hdr_def(P.FP_HDR16, 16),
+    P.FP_HDR8: hdr_def(P.FP_HDR8, 8),
     P.FP_HOLE: FPDef(P.FP_HOLE, [("", "np", 0.0, 0.0, 3.2, 3.2, 3.2)], [("circle", 0.0, 0.0, 3.6)], ref_at=(0, -5.2), val_at=(0, 5.2),
                      descr="M3 mounting hole, 3.2 mm drill"),
 }
@@ -519,6 +521,11 @@ place_part("J2", 28.0, 95.46)       # BUCK_OUT (+5V, GND)
 EXP_X = 6.0
 EXP_Y0 = ESP_YE - 35.56            # pin 1 at 62.44; pins 4..10 land on the BIN1..PWMA rows of the ESP32
 place_part("J3", EXP_X, EXP_Y0)
+# break-out headers for every unused, usable ESP32 pin (rows aligned with the ESP32 pad rows)
+ESP_EAST_X = ESP_XP + 22.86 + 3.5
+ESP_WEST_X = ESP_XP - 6.5
+place_part("J4", ESP_EAST_X, ESP_YE - 48.26)       # DevKit pads 19..4 -> pins 1..16
+place_part("J5", ESP_WEST_X, ESP_YE - 48.26)       # DevKit pads 38..31 -> pins 1..8
 
 for ref in sorted(PLACE):
     emit_custom(ref)
@@ -603,7 +610,15 @@ for pin, net in (("4", "/BIN1"), ("5", "/BIN2"), ("6", "/PWMB"), ("7", "/AIN2"),
     trk("F.Cu", net, 0.3, (hp.x, hp.y), (lx, hp.y))
     via(lx, hp.y, net, 0.8, 0.4)
 # 3V3 from the ESP32 3V3 pad to header pin 2
-trk("F.Cu", "VCCQ", 0.4, (p3.x, p3.y), (p3.x - 4.0, p3.y), (p3.x - 4.0, j3["2"].y), (j3["2"].x, j3["2"].y))
+trk("F.Cu", "VCCQ", 0.4, (p3.x, p3.y), (p3.x - 10.0, p3.y), (p3.x - 10.0, j3["2"].y), (j3["2"].x, j3["2"].y))   # passes through J5 pin 1 (also 3V3)
+
+# ------------------------------------------------------------------ ESP32 break-out headers J4 (east row) and J5 (west row)
+for ref, rows in (("J4", P.ESP_EAST), ("J5", P.ESP_WEST)):
+    hp_all = {q.num: q for q in board.pads if q.ref.startswith(ref + ".")}
+    for k, (pad, nm, net) in enumerate(rows):
+        ep, hp = esp_pad(pad), hp_all[str(k + 1)]
+        assert abs(ep.y - hp.y) < 1e-6 and ep.net == hp.net, (ref, k, ep.y, hp.y, ep.net, hp.net)
+        trk("F.Cu", net, 0.4, (ep.x, ep.y), (hp.x, hp.y))
 
 # ------------------------------------------------------------------ 5 V
 j2 = {q.num: q for q in board.pads if q.ref.startswith("J2.")}
@@ -707,6 +722,8 @@ def board_graphics():
     g += gr_text("5V BUCK OUT", 20, 93.5, 0.8)
     g += gr_text("EXPANSION HDR J3 (2ND PCB): 1=5V 2=3V3 3=GND 4=BIN1 5=BIN2 6=PWMB 7=AIN2 8=AIN1 9=GND 10=PWMA", -73, 60.0, 0.8)
     g += gr_text("USB", 49, 102.5, 1.0)
+    g += gr_text("J4 ESP GPIO (EAST ROW)", 58, 46.5, 0.8)
+    g += gr_text("J5 ESP GPIO (WEST)", 22, 46.5, 0.8)
     g += gr_text("2 OZ COPPER RECOMMENDED - FILL ZONES (B) BEFORE PLOT", -60, 102.5, 0.8)
     return g
 

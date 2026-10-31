@@ -17,6 +17,8 @@ FP_SW = "RocketBoy:SPDT_Slide_1x03_P2.54mm"
 FP_CAP = "RocketBoy:CP_Radial_D10.0mm_P5.00mm"
 FP_HDR2 = "RocketBoy:PinHeader_1x02_P2.54mm_Vertical"
 FP_HDR10 = "RocketBoy:PinHeader_1x10_P2.54mm_Vertical"
+FP_HDR16 = "RocketBoy:PinHeader_1x16_P2.54mm_Vertical"
+FP_HDR8 = "RocketBoy:PinHeader_1x08_P2.54mm_Vertical"
 FP_HOLE = "RocketBoy:MountingHole_3.2mm_M3"
 
 # ---------------------------------------------------------------- new parts
@@ -46,11 +48,27 @@ add("J3", "EXPANSION", FP_HDR10, "RocketBoy:Conn_01x10",
      ("6", "PWMB", "/PWMB"), ("7", "AIN2", "/AIN2"), ("8", "AIN1", "/AIN1"), ("9", "GND", "GND"), ("10", "PWMA", "/PWMA")],
     "Expansion header for a second PCB / controller: 1=5V 2=3V3 3=GND 4=BIN1 5=BIN2 6=PWMB 7=AIN2 8=AIN1 9=GND 10=PWMA "
     "(same nets as the ESP32 control pins, remove the ESP32 when the other board drives them)")
+# ---- break-out of every usable, still-unused ESP32 pin for a top PCB
+# east column of the ESP32 socket (DevKit pads 19..4, listed top -> bottom on the board)
+ESP_EAST = [("19", "GND", "GND"), ("18", "GPIO23", "/GPIO23"), ("17", "GPIO22", "/GPIO22"), ("16", "TX0_GPIO1", "/GPIO1_TX"),
+            ("15", "RX0_GPIO3", "/GPIO3_RX"), ("14", "GPIO21", "/GPIO21"), ("13", "GND", "GND"), ("12", "GPIO19", "/GPIO19"),
+            ("11", "GPIO18", "/GPIO18"), ("10", "GPIO5", "/GPIO5"), ("9", "GPIO17", "/GPIO17"), ("8", "GPIO16", "/GPIO16"),
+            ("7", "GPIO4", "/GPIO4"), ("6", "GPIO0", "/GPIO0"), ("5", "GPIO2", "/GPIO2"), ("4", "GPIO15", "/GPIO15")]
+# west column (DevKit pads 38..31)
+ESP_WEST = [("38", "3V3", "VCCQ"), ("37", "EN", "/EN"), ("36", "GPIO36_SVP", "/GPIO36"), ("35", "GPIO39_SVN", "/GPIO39"),
+            ("34", "GPIO34", "/GPIO34"), ("33", "GPIO35", "/GPIO35"), ("32", "GPIO32", "/GPIO32"), ("31", "GPIO33", "/GPIO33")]
+add("J4", "ESP_GPIO_EAST", FP_HDR16, "RocketBoy:Conn_01x16",
+    [(str(k + 1), nm, net) for k, (pad, nm, net) in enumerate(ESP_EAST)],
+    "Break-out of the east ESP32 pin row (DevKit pads 19..4): GND, GPIO23/22/1/3/21, GND, GPIO19/18/5/17/16/4/0/2/15. "
+    "Flash pins GPIO6-11 are NOT broken out.")
+add("J5", "ESP_GPIO_WEST", FP_HDR8, "RocketBoy:Conn_01x08",
+    [(str(k + 1), nm, net) for k, (pad, nm, net) in enumerate(ESP_WEST)],
+    "Break-out of the west ESP32 pin row (DevKit pads 38..31): 3V3, EN, GPIO36/39/34/35 (input only), GPIO32/33")
 for i in range(1, 5):
     add("H%d" % i, "M3", FP_HOLE, "RocketBoy:MountingHole", [], "M3 mounting hole (chassis pattern)")
 
 # ESP32 pad -> net map (the original design only wired the 6 motor-control pads, 5V, 3V3, GND)
-ESP_NETS = {
+ESP_NETS = {   # filled below with the break-out pins too
     "20": "+5V",            # was VBAT (12 V) -> FIXED: now 5 V from the buck module
     "38": "VCCQ",           # 3V3
     "21": None,             # was GND but this DevKit pin is CMD (flash) -> now left open
@@ -58,3 +76,7 @@ ESP_NETS = {
 }
 # hole pattern of the chassis STEP: (+-75, +-100)
 HOLES = [(-75.0, -100.0), (75.0, -100.0), (-75.0, 100.0), (75.0, 100.0)]
+
+for _pad, _nm, _net in ESP_EAST + ESP_WEST:
+    if _net not in ("GND", "VCCQ"):
+        ESP_NETS[_pad] = _net

@@ -162,6 +162,7 @@ class Robot:
         Tr = mo.Kt * ir - mo.Tf * math.tanh(self.wr / 0.5)
         if self.blocked:
             self.wl = self.wr = 0.0
+            self.v = self.wz = 0.0               # jammed: neither wheels nor robot can move
             Tl = Tr = 0.0
             fl = fr = 0.0
         # contact slip speeds

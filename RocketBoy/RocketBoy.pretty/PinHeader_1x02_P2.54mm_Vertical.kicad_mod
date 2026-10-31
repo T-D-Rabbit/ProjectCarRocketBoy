@@ -7,7 +7,7 @@
 	(property "Reference" "REF**"
 		(at -3.200 1.270 0)
 		(layer "F.SilkS")
-		(uuid "170b37a5-e41c-4e65-b913-fdf81fdfdc69")
+		(uuid "2b21e4fa-c10f-4bfd-b667-b40b67410e0c")
 		(effects
 			(font
 				(size 1 1)
@@ -18,7 +18,7 @@
 	(property "Value" "PinHeader_1x02_P2.54mm_Vertical"
 		(at 3.400 1.270 0)
 		(layer "F.Fab")
-		(uuid "60e48cbe-3118-4caf-b239-18cc7115df90")
+		(uuid "9fe15f1d-f047-4bc9-b64a-191a4b974a37")
 		(effects
 			(font
 				(size 1 1)
@@ -30,7 +30,7 @@
 		(at 0.000 0.000 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "4323af4d-e5b4-4616-8300-4cfdab34576e")
+		(uuid "f9cfd3a7-3294-4886-92c6-282a65715961")
 		(effects
 			(font
 				(size 1 1)
@@ -42,7 +42,7 @@
 		(at 0.000 0.000 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "4e54c871-096f-431b-96a4-d85da7d9bbe6")
+		(uuid "98a71fb7-91bf-4c95-8e2f-ba78537e8bfc")
 		(effects
 			(font
 				(size 1 1)
@@ -60,7 +60,7 @@
 		)
 		(fill no)
 		(layer "F.SilkS")
-		(uuid "a1517b8f-e425-4dbb-aba2-cebd204f7633")
+		(uuid "cc7fa9a8-5228-47d5-9918-65396335ba5e")
 	)
 	(pad "1" thru_hole rect
 		(at 0.000 0.000)
@@ -68,7 +68,7 @@
 		(drill 1)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "2b373099-52c2-456f-a41b-cb3e21fb4df3")
+		(uuid "55084540-26d5-4e0c-9e92-030fcf868e46")
 	)
 	(pad "2" thru_hole circle
 		(at 0.000 2.540)
@@ -76,7 +76,7 @@
 		(drill 1)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "5d4331d2-840c-4802-be04-a8f680563925")
+		(uuid "569d6b41-d395-4621-b980-d696327d66a5")
 	)
 	(embedded_fonts no)
 )

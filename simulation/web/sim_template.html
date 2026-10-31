@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RocketBoy simulator</title>
+<style>
+  :root{--bg:#161b22;--pan:#1f2630;--bd:#33404f;--tx:#dfe6ee;--mut:#8fa1b5;--ac:#ff9a1f}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--tx);font:14px/1.45 system-ui,Segoe UI,Arial,sans-serif}
+  #wrap{max-width:1180px;margin:0 auto;padding:10px}
+  h1{font-size:18px;margin:2px 0 8px} h1 small{color:var(--mut);font-weight:400;font-size:13px}
+  canvas#cv{width:100%;height:auto;background:#eef2f7;border-radius:8px;display:block;touch-action:none;cursor:grab;outline:none}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:10px;margin-top:10px}
+  .card{background:var(--pan);border:1px solid var(--bd);border-radius:8px;padding:10px}
+  .card h2{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin:0 0 8px}
+  button,select{background:#2b3644;color:var(--tx);border:1px solid #475669;border-radius:6px;padding:6px 10px;font-size:14px;cursor:pointer}
+  button:hover{background:#364457} button.on{background:#2f6f3e;border-color:#3f9a54}
+  button.big{padding:12px 0;font-size:18px;min-width:52px;user-select:none;touch-action:none}
+  .dpad{display:grid;grid-template-columns:repeat(3,56px);grid-template-rows:repeat(2,52px);gap:6px;justify-content:center}
+  .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:6px 0}
+  label{display:flex;gap:6px;align-items:center}
+  input[type=range]{width:150px}
+  #mods{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+  .mod{border-radius:6px;padding:6px 4px;text-align:center;font:12px/1.25 monospace;color:#10151b;min-height:46px}
+  .mod b{display:block;font-size:13px}
+  pre{margin:0;font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap}
+  .warn{color:#ffb454}.bad{color:#ff6b6b}.ok{color:#6fdc8c}
+  kbd{background:#2b3644;border:1px solid #475669;border-bottom-width:2px;border-radius:4px;padding:0 5px;font-size:12px}
+  .small{color:var(--mut);font-size:12px}
+  canvas.chart{width:100%;height:auto;background:#10151b;border-radius:6px;display:block}
+</style>
+</head>
+<body>
+<div id="wrap">
+<h1>RocketBoy simulator <small>3D model + electro-mechanical model of the 9&times;TB6612FNG driver bank, 3S battery, SG-3851218000-60K motors and 110&nbsp;mm wheels</small></h1>
+<canvas id="cv" width="1100" height="620" tabindex="0"></canvas>
+
+<div class="grid">
+  <div class="card">
+    <h2>Drive</h2>
+    <div class="dpad">
+      <span></span><button class="big" id="bUp">&#9650;</button><span></span>
+      <button class="big" id="bLeft">&#9664;</button><button class="big" id="bDown">&#9660;</button><button class="big" id="bRight">&#9654;</button>
+    </div>
+    <div class="row" style="justify-content:center">
+      <button id="bBrake">Brake / cut power (Space)</button>
+    </div>
+    <div class="row">
+      <button id="bRoute">&#9654; Run hard-coded route</button>
+      <button id="bReset">Reset (R)</button>
+      <button id="bPause">Pause (P)</button>
+    </div>
+    <div class="small">Keys: <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> or arrows = drive/steer, <kbd>Space</kbd> = cut power, <kbd>R</kbd> = reset, <kbd>P</kbd> = pause, <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> = switch SW1-3, <kbd>C</kbd> = camera.</div>
+  </div>
+
+  <div class="card">
+    <h2>Settings</h2>
+    <div class="row"><label>max duty <input type="range" id="duty" min="0.2" max="1" step="0.05" value="0.6"><span id="dutyV">0.60</span></label></div>
+    <div class="row"><label><input type="checkbox" id="soft" checked> soft start (duty slew 3 /s)</label></div>
+    <div class="row"><label>sim speed
+      <select id="speed"><option>0.25</option><option>0.5</option><option selected>1</option><option>2</option><option>4</option></select>&times;</label>
+      <label><input type="checkbox" id="chase" checked> chase camera</label></div>
+    <div class="row"><b>STBY switches</b>
+      <label><input type="checkbox" id="g1" checked> SW1</label>
+      <label><input type="checkbox" id="g2"> SW2</label>
+      <label><input type="checkbox" id="g3"> SW3</label></div>
+    <div class="row"><label><input type="checkbox" id="jam"> jam the wheels (stall test)</label></div>
+    <div class="small">Each switch enables 3 of the 9 TB6612 modules (3 per motor channel, 1.2 A continuous each). Try: jam the wheels with only SW1 on &rarr; modules go red.</div>
+  </div>
+
+  <div class="card">
+    <h2>Driver modules (|I| of the worse channel, rating 1.2 A)</h2>
+    <div id="mods"></div>
+    <div class="small" id="modInfo" style="margin-top:6px"></div>
+  </div>
+
+  <div class="card"><h2>State</h2><pre id="stats"></pre></div>
+  <div class="card"><h2>Motor current &amp; capacity</h2><canvas class="chart" id="ch1" width="520" height="170"></canvas></div>
+  <div class="card"><h2>Battery voltage &amp; speed</h2><canvas class="chart" id="ch2" width="520" height="170"></canvas></div>
+</div>
+<p class="small">Physics = <code>simulation/rocketbot.py</code> ported to JavaScript (<code>sim_core.js</code>, results identical to the Python model: <code>simulation/test_js_parity.py</code>).
+Assumed parts (wheel, mass, battery) are listed in <code>simulation/params.py</code>. The motor's stall data is not in the datasheet PDF, it is derived from the rated point.</p>
+</div>
+
+<script>
+const DATA = /*DATA*/null;
+/*SIMCORE*/
+
+// ====================================================================== setup
+const cv = document.getElementById('cv'), ctx = cv.getContext('2d');
+const W = cv.width, H = cv.height;
+const off = document.createElement('canvas'); off.width = W; off.height = H;
+const octx = off.getContext('2d');
+const img = octx.createImageData(W, H);
+const px32 = new Uint32Array(img.data.buffer);
+const zbuf = new Float32Array(W * H);
+const R_W = DATA.rw, mats = DATA.mats, ROUTE = DATA.route;
+const P = DATA.params;
+const sim = new RocketSim(P, [true, false, false]);
+const DT = 0.0005, SUB = 10, DTC = DT * SUB;
+const $ = id => document.getElementById(id);
+const LIGHT = (() => { const l = [-0.45, -0.55, 0.70], n = Math.hypot(...l); return l.map(v => v / n); })();
+
+// ====================================================================== controller
+const keys = {};
+let mode = 'manual', routeIdx = 0, routeTicks = 0;
+let ulC = 0, urC = 0, maxDuty = 0.6, soft = true, speed = 1, paused = false, chase = true;
+let budget = 0, stepCount = 0, nextHist = 0, nextTrail = 0, msg = '', msgUntil = 0;
+const hist = [];       // {t,il,ir,vb,v,cap}
+const trail = [];
+function say(s, sec) { msg = s; msgUntil = performance.now() + (sec || 3) * 1000; }
+
+function controlTick() {
+  let tl = 0, tr = 0;
+  if (mode === 'route') {
+    const st = ROUTE[routeIdx];
+    tl = st[2]; tr = st[3];
+  } else {
+    const thr = (keys.up ? 1 : 0) - (keys.down ? 1 : 0), steer = (keys.left ? 1 : 0) - (keys.right ? 1 : 0);
+    let a = thr - steer, b = thr + steer;
+    const sc = Math.max(1, Math.abs(a), Math.abs(b));
+    tl = a / sc * maxDuty; tr = b / sc * maxDuty;
+    if (keys.brake) { tl = tr = 0; ulC = urC = 0; }
+  }
+  const sl = (soft ? 3.0 : 1e3) * DTC;
+  ulC += Math.max(-sl, Math.min(sl, tl - ulC));
+  urC += Math.max(-sl, Math.min(sl, tr - urC));
+  if (mode === 'route') {
+    routeTicks++;
+    if (routeTicks >= Math.round(ROUTE[routeIdx][1] / DTC)) {
+      routeIdx++; routeTicks = 0;
+      if (routeIdx >= ROUTE.length) { mode = 'manual'; $('bRoute').classList.remove('on'); say('Route finished - you have control again', 4); }
+    }
+  }
+}
+
+function advance(dt) {
+  budget = Math.min(budget + dt * speed, 0.12);
+  while (budget >= DT) {
+    if (stepCount % SUB === 0) controlTick();
+    sim.step(ulC, urC, DT);
+    stepCount++; budget -= DT;
+    if (sim.t >= nextHist) {
+      nextHist = sim.t + 0.02;
+      hist.push({ t: sim.t, il: sim.il, ir: sim.ir, vb: sim.batt.v, v: sim.v, cap: sim.bank.nActive() * P.driver.I_CONT });
+      if (hist.length > 700) hist.shift();
+    }
+    if (sim.t >= nextTrail) {
+      nextTrail = sim.t + 0.04;
+      trail.push([sim.x * 1000, sim.y * 1000]);
+      if (trail.length > 2500) trail.shift();
+    }
+  }
+}
+
+function resetAll() {
+  sim.reset(); sim.blocked = $('jam').checked;
+  mode = 'manual'; routeIdx = 0; routeTicks = 0; ulC = urC = 0; hist.length = 0; trail.length = 0; nextHist = 0; nextTrail = 0; budget = 0; stepCount = 0;
+  $('bRoute').classList.remove('on');
+  say('Reset', 1.5);
+}
+
+// ====================================================================== camera + rasteriser (same as the standalone viewer)
+let yawOff = 0.55, pitch = 0.5, dist = 1150;
+function camBasis() {
+  const tx = sim.x * 1000, ty = sim.y * 1000, target = [tx, ty, 50];
+  const yaw = (chase ? sim.th - Math.PI / 2 : 0) + yawOff;
+  const cy = Math.cos(yaw), sy = Math.sin(yaw), cp = Math.cos(pitch), sp = Math.sin(pitch);
+  const eye = [target[0] + dist * cp * sy, target[1] - dist * cp * cy, target[2] + dist * sp];
+  let f = [target[0] - eye[0], target[1] - eye[1], target[2] - eye[2]];
+  const L = Math.hypot(...f); f = f.map(v => v / L);
+  let r = [f[1], -f[0], 0]; const Lr = Math.hypot(...r) || 1; r = r.map(v => v / Lr);
+  const u = [r[1] * f[2] - r[2] * f[1], r[2] * f[0] - r[0] * f[2], r[0] * f[1] - r[1] * f[0]];
+  return { eye, f, r, u, target };
+}
+const FOV = 36 * Math.PI / 180, FPX = (H / 2) / Math.tan(FOV / 2);
+function proj(c, p) {
+  const dx = p[0] - c.eye[0], dy = p[1] - c.eye[1], dz = p[2] - c.eye[2];
+  const x = dx * c.r[0] + dy * c.r[1] + dz * c.r[2], y = dx * c.u[0] + dy * c.u[1] + dz * c.u[2], z = dx * c.f[0] + dy * c.f[1] + dz * c.f[2];
+  return [W / 2 + FPX * x / z, H / 2 - FPX * y / z, z];
+}
+const verts = new Float32Array(9);
+function drawTri(cam, ax, ay, az, bx, by, bz, cx, cy, cz, color) {
+  const ux = bx - ax, uy = by - ay, uz = bz - az, vx = cx - ax, vy = cy - ay, vz = cz - az;
+  const nx = uy * vz - uz * vy, ny = uz * vx - ux * vz, nz = ux * vy - uy * vx;
+  const nl = Math.hypot(nx, ny, nz); if (nl < 1e-9) return;
+  const d = Math.abs(nx * LIGHT[0] + ny * LIGHT[1] + nz * LIGHT[2]) / nl;
+  const s = Math.min(1.25, (0.30 + 0.70 * d) * 1.12);
+  const col = (255 << 24) | (Math.min(255, color[2] * s) << 16) | (Math.min(255, color[1] * s) << 8) | Math.min(255, color[0] * s);
+  const Pp = [proj(cam, [ax, ay, az]), proj(cam, [bx, by, bz]), proj(cam, [cx, cy, cz])];
+  if (Pp[0][2] < 20 || Pp[1][2] < 20 || Pp[2][2] < 20) return;
+  const w = [1 / Pp[0][2], 1 / Pp[1][2], 1 / Pp[2][2]];
+  const ymin = Math.min(Pp[0][1], Pp[1][1], Pp[2][1]), ymax = Math.max(Pp[0][1], Pp[1][1], Pp[2][1]);
+  if (ymax < 0 || ymin >= H) return;
+  for (let y = Math.max(0, Math.floor(ymin)); y <= Math.min(H - 1, Math.floor(ymax)); y++) {
+    const yy = y + 0.5; let xl = 1e9, xr = -1e9, wl = 0, wr = 0;
+    for (let i = 0; i < 3; i++) {
+      const p = Pp[i], q = Pp[(i + 1) % 3];
+      if ((p[1] <= yy && yy < q[1]) || (q[1] <= yy && yy < p[1])) {
+        const t = (yy - p[1]) / (q[1] - p[1]);
+        const x = p[0] + t * (q[0] - p[0]), ww = w[i] + t * (w[(i + 1) % 3] - w[i]);
+        if (x < xl) { xl = x; wl = ww; } if (x > xr) { xr = x; wr = ww; }
+      }
+    }
+    if (xr < xl) continue;
+    const x0 = Math.max(0, Math.round(xl)), x1 = Math.min(W - 1, Math.round(xr) - 1), span = xr - xl; if (span < 1e-9) continue;
+    const dw = (wr - wl) / span; let wv = wl + dw * (x0 + 0.5 - xl); const row = y * W;
+    for (let x = x0; x <= x1; x++, wv += dw) if (wv > zbuf[row + x]) { zbuf[row + x] = wv; px32[row + x] = col; }
+  }
+}
+function drawGroup(cam, g, wheelSide) {
+  const a = sim.th - Math.PI / 2, ca = Math.cos(a), sa = Math.sin(a);
+  const phi = wheelSide === 0 ? 0 : (wheelSide > 0 ? sim.phir : sim.phil);
+  const cp = Math.cos(-phi), sp = Math.sin(-phi), p = g.p, m = g.m, n = m.length, tx = sim.x * 1000, ty = sim.y * 1000, o = verts;
+  for (let t = 0; t < n; t++) {
+    for (let k = 0; k < 3; k++) {
+      let X = p[t * 9 + k * 3], Y = p[t * 9 + k * 3 + 1], Z = p[t * 9 + k * 3 + 2];
+      if (wheelSide !== 0) { if (wheelSide < 0) X = -X; const y1 = Y * cp - (Z - R_W) * sp, z1 = Y * sp + (Z - R_W) * cp + R_W; Y = y1; Z = z1; }
+      o[k * 3] = X * ca - Y * sa + tx; o[k * 3 + 1] = X * sa + Y * ca + ty; o[k * 3 + 2] = Z;
+    }
+    drawTri(cam, o[0], o[1], o[2], o[3], o[4], o[5], o[6], o[7], o[8], mats[m[t]].slice(1));
+  }
+}
+function line3(cam, a, b, style, lw) {
+  const pa = proj(cam, a), pb = proj(cam, b); if (pa[2] < 20 || pb[2] < 20) return;
+  ctx.strokeStyle = style; ctx.lineWidth = lw; ctx.beginPath(); ctx.moveTo(pa[0], pa[1]); ctx.lineTo(pb[0], pb[1]); ctx.stroke();
+}
+function render() {
+  const cam = camBasis();
+  ctx.fillStyle = '#eef2f7'; ctx.fillRect(0, 0, W, H);
+  const cx0 = Math.floor((cam.target[0] - 3500) / 500) * 500, cy0 = Math.floor((cam.target[1] - 3500) / 500) * 500;
+  for (let x = cx0; x <= cx0 + 7000; x += 500) for (let y = cy0; y < cy0 + 7000; y += 500) line3(cam, [x, y, 0], [x, y + 500, 0], x === 0 ? '#9aa6b5' : '#d3d9e1', x === 0 ? 2 : 1);
+  for (let y = cy0; y <= cy0 + 7000; y += 500) for (let x = cx0; x < cx0 + 7000; x += 500) line3(cam, [x, y, 0], [x + 500, y, 0], y === 0 ? '#9aa6b5' : '#d3d9e1', y === 0 ? 2 : 1);
+  for (let i = 1; i < trail.length; i++) line3(cam, [trail[i - 1][0], trail[i - 1][1], 0.5], [trail[i][0], trail[i][1], 0.5], '#ff8c00', 2.5);
+  px32.fill(0); zbuf.fill(0);
+  drawGroup(cam, DATA.body, 0); drawGroup(cam, DATA.wheel, 1); drawGroup(cam, DATA.wheel, -1);
+  octx.putImageData(img, 0, 0); ctx.drawImage(off, 0, 0);
+  // on-canvas banner
+  const now = performance.now();
+  if (now < msgUntil) {
+    ctx.font = 'bold 20px system-ui'; ctx.textAlign = 'center'; ctx.fillStyle = 'rgba(20,28,38,.75)';
+    const wd = ctx.measureText(msg).width + 30; ctx.fillRect(W / 2 - wd / 2, 14, wd, 36); ctx.fillStyle = '#fff'; ctx.fillText(msg, W / 2, 40); ctx.textAlign = 'left';
+  }
+  if (paused) { ctx.font = 'bold 28px system-ui'; ctx.fillStyle = 'rgba(20,28,38,.7)'; ctx.fillText('PAUSED', 18, 44); }
+}
+
+// ====================================================================== panels
+const modsEl = $('mods');
+const modCells = [];
+for (let r = 0; r < 3; r++) for (let c = 0; c < 3; c++) {
+  const idx = 3 * c + r, d = document.createElement('div'); d.className = 'mod'; modCells[idx] = d;
+  d.style.gridColumn = c + 1; d.style.gridRow = r + 1; modsEl.appendChild(d);
+}
+function colorFor(ratio) {
+  if (ratio < 0.5) return '#6fdc8c'; if (ratio < 0.85) return '#d7e86a'; if (ratio <= 1.0) return '#ffc857'; if (ratio <= 2.67) return '#ff8a5c'; return '#ff5c7a';
+}
+function updatePanels() {
+  const bank = sim.bank, ic = P.driver.I_CONT, ip = P.driver.I_PEAK;
+  let worstNow = 0, worstIdx = -1;
+  for (let i = 0; i < 9; i++) {
+    const d = modCells[i], on = bank.groups[Math.floor(i / 3)];
+    const cur = Math.max(Math.abs(bank.now.A[i]), Math.abs(bank.now.B[i]));
+    const peak = Math.max(bank.stat.A[i], bank.stat.B[i]);
+    if (!on) { d.style.background = '#3a4350'; d.style.color = '#98a6b6'; d.innerHTML = '<b>U' + (i + 1) + '</b>STBY low'; continue; }
+    if (cur > worstNow) { worstNow = cur; worstIdx = i; }
+    d.style.background = colorFor(cur / ic); d.style.color = '#10151b';
+    d.innerHTML = '<b>U' + (i + 1) + '</b>' + cur.toFixed(2) + ' A<br>pk ' + peak.toFixed(2);
+  }
+  const n = bank.nActive();
+  let over = 0, overP = 0;
+  for (let i = 0; i < 9; i++) for (const ch of ['A', 'B']) { over += bank.overCont[ch][i]; overP += bank.overPeak[ch][i]; }
+  $('modInfo').innerHTML = n === 0 ? '<span class="bad">all STBY switches off - motors are coasting</span>'
+    : (n / 3) + ' group(s) on: ' + n + ' modules per motor channel, capacity ' + (n * ic).toFixed(1) + ' A continuous / ' + (n * ip).toFixed(1) + ' A pulse'
+    + '<br>time over the 1.2 A rating (summed over modules): ' + over.toFixed(2) + ' s' + (overP > 0 ? ' <span class="bad">(+ ' + overP.toFixed(2) + ' s beyond the 3.2 A pulse rating)</span>' : '');
+  const kmh = sim.v * 3.6;
+  const peakAny = Math.max(...bank.stat.A, ...bank.stat.B);
+  const socPct = sim.batt.soc * 100, usedmAh = (P.battery.SOC_START - sim.batt.soc) * P.battery.CAPACITY_AH * 1000;
+  const cls = peakAny > ip ? 'bad' : (peakAny > ic ? 'warn' : 'ok');
+  $('stats').innerHTML =
+    'mode            ' + (mode === 'route' ? 'ROUTE: ' + ROUTE[Math.min(routeIdx, ROUTE.length - 1)][0] : 'manual') + '\n' +
+    'time            ' + sim.t.toFixed(2) + ' s\n' +
+    'speed           ' + sim.v.toFixed(2) + ' m/s (' + kmh.toFixed(1) + ' km/h)\n' +
+    'yaw rate        ' + (sim.wz * 180 / Math.PI).toFixed(0) + ' deg/s\n' +
+    'duty  L / R     ' + ulC.toFixed(2) + ' / ' + urC.toFixed(2) + '\n' +
+    'motor I L / R   ' + sim.il.toFixed(2) + ' / ' + sim.ir.toFixed(2) + ' A\n' +
+    'battery         ' + sim.batt.v.toFixed(2) + ' V   ' + (sim.ibat || 0).toFixed(1) + ' A   SOC ' + socPct.toFixed(1) + ' %\n' +
+    'charge used     ' + usedmAh.toFixed(1) + ' mAh\n' +
+    'position        ' + sim.x.toFixed(2) + ', ' + sim.y.toFixed(2) + ' m\n' +
+    'tyre slip       ' + (sim.slipTime > 0 ? sim.slipTime.toFixed(2) + ' s total' : 'none') + '\n' +
+    '<span class="' + cls + '">worst module peak ' + peakAny.toFixed(2) + ' A (rating 1.2 cont / 3.2 pulse)</span>';
+}
+function chart(canvas, series, ymin, ymax, unit, lines) {
+  const c = canvas.getContext('2d'), w = canvas.width, h = canvas.height, L = 38, B = 16, T = 6, Rr = 6;
+  c.fillStyle = '#10151b'; c.fillRect(0, 0, w, h);
+  c.font = '10px monospace'; c.fillStyle = '#8fa1b5'; c.strokeStyle = '#243040'; c.lineWidth = 1;
+  const sy = v => h - B - (v - ymin) / (ymax - ymin) * (h - B - T);
+  for (let k = 0; k <= 4; k++) { const v = ymin + (ymax - ymin) * k / 4; c.beginPath(); c.moveTo(L, sy(v)); c.lineTo(w - Rr, sy(v)); c.stroke(); c.fillText(v.toFixed(v < 20 ? 1 : 0), 2, sy(v) + 3); }
+  if (!hist.length) return;
+  const t1 = hist[hist.length - 1].t, t0 = t1 - 14, sx = t => L + (t - t0) / 14 * (w - L - Rr);
+  for (const ln of (lines || [])) {
+    c.strokeStyle = ln.color; c.setLineDash([5, 4]); c.beginPath();
+    hist.forEach((p, i) => { const x = sx(p.t), y = sy(ln.f(p)); i ? c.lineTo(x, y) : c.moveTo(x, y); }); c.stroke(); c.setLineDash([]);
+  }
+  series.forEach(s => {
+    c.strokeStyle = s.color; c.lineWidth = 1.6; c.beginPath();
+    hist.forEach((p, i) => { const x = sx(p.t), y = sy(Math.max(ymin, Math.min(ymax, s.f(p)))); i ? c.lineTo(x, y) : c.moveTo(x, y); }); c.stroke();
+  });
+  let lx = L + 6; c.lineWidth = 1;
+  series.concat(lines || []).forEach(s => { c.fillStyle = s.color; c.fillText(s.label, lx, T + 10); lx += s.label.length * 6.4 + 14; });
+  c.fillStyle = '#8fa1b5'; c.fillText('last 14 s  (' + unit + ')', w - 110, h - 3);
+}
+function updateCharts() {
+  const peak = hist.reduce((m, p) => Math.max(m, p.il, p.ir, p.cap), 0);
+  chart($('ch1'), [{ f: p => p.il, color: '#58a6ff', label: 'left motor' }, { f: p => p.ir, color: '#ff7b72', label: 'right motor' }], 0, Math.max(4, Math.ceil(peak + 0.5)), 'A',
+    [{ f: p => p.cap, color: '#f2cc60', label: 'rated capacity of enabled modules' }]);
+  chart($('ch2'), [{ f: p => p.vb, color: '#7ee787', label: 'battery V' }, { f: p => 9 + p.v * 1.2, color: '#d2a8ff', label: 'speed (scaled)' }], 9, 13, 'V',
+    []);
+}
+
+// ====================================================================== UI wiring
+const keyMap = { w: 'up', arrowup: 'up', s: 'down', arrowdown: 'down', a: 'left', arrowleft: 'left', d: 'right', arrowright: 'right', ' ': 'brake' };
+window.addEventListener('keydown', e => {
+  if (e.target && /INPUT|SELECT/.test(e.target.tagName) && e.key === ' ') return;
+  const k = e.key.toLowerCase();
+  if (keyMap[k]) { keys[keyMap[k]] = true; if (mode === 'route' && keyMap[k] !== 'brake') { mode = 'manual'; $('bRoute').classList.remove('on'); say('Manual control', 1.5); } e.preventDefault(); return; }
+  if (k === 'r') resetAll(); else if (k === 'p') togglePause(); else if (k === 'c') { chase = !chase; $('chase').checked = chase; yawOff = chase ? 0.55 : 0.0; }
+  else if (k === '1' || k === '2' || k === '3') { const b = $('g' + k); b.checked = !b.checked; b.onchange(); }
+});
+window.addEventListener('keyup', e => { const k = e.key.toLowerCase(); if (keyMap[k]) { keys[keyMap[k]] = false; e.preventDefault(); } });
+window.addEventListener('blur', () => { for (const k in keys) keys[k] = false; });
+function hold(id, key) {
+  const b = $(id);
+  b.addEventListener('pointerdown', e => { keys[key] = true; if (key !== 'brake' && mode === 'route') { mode = 'manual'; $('bRoute').classList.remove('on'); } b.setPointerCapture(e.pointerId); e.preventDefault(); });
+  b.addEventListener('pointerup', () => { keys[key] = false; }); b.addEventListener('pointercancel', () => { keys[key] = false; });
+}
+hold('bUp', 'up'); hold('bDown', 'down'); hold('bLeft', 'left'); hold('bRight', 'right'); hold('bBrake', 'brake');
+function togglePause() { paused = !paused; $('bPause').classList.toggle('on', paused); }
+$('bPause').onclick = togglePause;
+$('bReset').onclick = resetAll;
+$('bRoute').onclick = () => {
+  if (mode === 'route') { mode = 'manual'; $('bRoute').classList.remove('on'); return; }
+  resetAll(); mode = 'route'; $('bRoute').classList.add('on'); say('Running the hard-coded route (any drive key takes over)', 3);
+};
+$('duty').oninput = e => { maxDuty = parseFloat(e.target.value); $('dutyV').textContent = maxDuty.toFixed(2); };
+$('soft').onchange = e => { soft = e.target.checked; say(soft ? 'Soft start ON' : 'Soft start OFF - watch the inrush current', 2.5); };
+$('speed').onchange = e => { speed = parseFloat(e.target.value); };
+$('chase').onchange = e => { chase = e.target.checked; yawOff = chase ? 0.55 : 0.0; };
+$('jam').onchange = e => { sim.blocked = e.target.checked; say(sim.blocked ? 'Wheels jammed' : 'Wheels free', 2); };
+for (const g of [1, 2, 3]) { const b = $('g' + g); b.onchange = () => { sim.bank.groups[g - 1] = b.checked; say('SW' + g + (b.checked ? ' ON' : ' OFF'), 1.5); }; }
+cv.addEventListener('pointerdown', e => { cv._d = [e.clientX, e.clientY]; cv.setPointerCapture(e.pointerId); cv.style.cursor = 'grabbing'; cv.focus(); });
+cv.addEventListener('pointerup', () => { cv._d = null; cv.style.cursor = 'grab'; });
+cv.addEventListener('pointermove', e => { if (!cv._d) return; yawOff -= (e.clientX - cv._d[0]) * 0.008; pitch = Math.max(0.05, Math.min(1.55, pitch + (e.clientY - cv._d[1]) * 0.008)); cv._d = [e.clientX, e.clientY]; });
+cv.addEventListener('wheel', e => { e.preventDefault(); dist = Math.max(350, Math.min(6000, dist * Math.exp(e.deltaY * 0.001))); }, { passive: false });
+
+let last = performance.now(), panelT = 0;
+function frame(now) {
+  const dt = Math.min(0.05, (now - last) / 1000); last = now;
+  if (!paused) advance(dt);
+  render();
+  panelT += dt;
+  if (panelT > 0.1) { panelT = 0; updatePanels(); updateCharts(); }
+  requestAnimationFrame(frame);
+}
+updatePanels(); updateCharts();
+say('Click the view, then drive with W A S D', 5);
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>
