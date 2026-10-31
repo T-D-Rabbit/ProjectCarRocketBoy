@@ -134,6 +134,7 @@ class Robot:
         self.v = 0.0
         self.wz = 0.0
         self.wl = self.wr = 0.0            # wheel angular speeds (rad/s)
+        self.phil = self.phir = 0.0        # accumulated wheel rotation (rad), used by the 3D animation
         self.t = 0.0
         self.il = self.ir = 0.0            # signed motor currents
         self.log = []
@@ -180,6 +181,8 @@ class Robot:
             self.wr += dt * (Tr - fr * self.r) / self.Jw
             self.v += dt * a_v
             self.wz += dt * a_w
+        self.phil += self.wl * dt
+        self.phir += self.wr * dt
         # pose
         self.th += self.wz * dt
         self.x += self.v * math.cos(self.th) * dt

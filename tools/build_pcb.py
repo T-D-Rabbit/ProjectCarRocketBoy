@@ -33,7 +33,7 @@ def new_uuid():
 
 # ------------------------------------------------------------------ board frame
 CX, CY = 210.0, 148.5          # board centre on the A3 sheet (chassis centre)
-BW, BH = 158.0, 208.0          # board size
+BW, BH = 155.0, 208.0          # board size (155 wide: stays clear of the motor rear bosses at |x| = 77.7)
 CORNER_R = 4.0
 CLR = 0.25                      # clearance used while routing (rule in .kicad_pro = 0.2)
 
@@ -515,9 +515,10 @@ for i, cx_ in enumerate(CAP_X):
 # buck module headers
 place_part("J1", -66.0, 31.0)       # BUCK_IN  (VBAT, GND)
 place_part("J2", 28.0, 95.46)       # BUCK_OUT (+5V, GND)
-# IR header: pin 3 (OUT1) aligned with the ESP SVP pad row
-IR_X = 4.0
-place_part("J3", IR_X, ESP_YE - 48.26 + 0.0 - 0.0)   # pin1 at y of ESP 3V3 pad row (49.74)
+# expansion header for a second PCB: pin rows are aligned with the ESP32 control-pad rows
+EXP_X = 6.0
+EXP_Y0 = ESP_YE - 35.56            # pin 1 at 62.44; pins 4..10 land on the BIN1..PWMA rows of the ESP32
+place_part("J3", EXP_X, EXP_Y0)
 
 for ref in sorted(PLACE):
     emit_custom(ref)
@@ -592,25 +593,24 @@ p25 = esp_pad("25")
 trk("F.Cu", "GND", 0.5, (p25.x, p25.y), (p25.x + 5.0, p25.y))
 via(p25.x + 5.0, p25.y, "GND", 0.8, 0.4)
 
-# ------------------------------------------------------------------ IR header wiring
-j3 = {n: p for n, p in ((q.num, q) for q in board.pads if q.ref.startswith("J3."))}
-# OUT1..OUT6 straight from the west column (F.Cu, passes over the B.Cu lanes)
-for out_i, pn in enumerate(["36", "35", "34", "33", "32", "31"], start=1):
-    ep = esp_pad(pn)
-    hp = j3[str(out_i + 2)]
-    trk("F.Cu", "/IR%d" % out_i, 0.3, (ep.x, ep.y), (hp.x, hp.y))
-# 3V3 to header pin 2: from the 3V3 pad
-trk("F.Cu", "VCCQ", 0.4, (p3.x, p3.y), (p3.x - 8.0, p3.y), (p3.x - 8.0, j3["2"].y), (j3["2"].x, j3["2"].y))
-# OUT7/OUT8 from the east column through the ESP interior, around the north end, to the header's west side
-# (planar nesting: upper pad -> lower header pin; lower pad -> upper header pin)
-ea = esp_pad("12"); eb = esp_pad("11")
-trk("F.Cu", "/IR8", 0.3, (ea.x, ea.y), (56.0, ea.y), (56.0, 45.4), (IR_X - 3.1, 45.4), (IR_X - 3.1, j3["10"].y), (j3["10"].x, j3["10"].y))
-trk("F.Cu", "/IR7", 0.3, (eb.x, eb.y), (52.0, eb.y), (52.0, 46.8), (IR_X - 1.8, 46.8), (IR_X - 1.8, j3["9"].y), (j3["9"].x, j3["9"].y))
+# ------------------------------------------------------------------ expansion header wiring
+j3 = {q.num: q for q in board.pads if q.ref.startswith("J3.")}
+# control pins: F.Cu from the header pin east to a via on the (B.Cu) logic lane of column 2 at the same y
+for pin, net in (("4", "/BIN1"), ("5", "/BIN2"), ("6", "/PWMB"), ("7", "/AIN2"), ("8", "/AIN1"), ("10", "/PWMA")):
+    hp = j3[pin]
+    lx = east_x(1, net)
+    assert abs(hp.y - esp_pad(ESP_CTRL[net]).y) < 1e-6, (pin, hp.y)
+    trk("F.Cu", net, 0.3, (hp.x, hp.y), (lx, hp.y))
+    via(lx, hp.y, net, 0.8, 0.4)
+# 3V3 from the ESP32 3V3 pad to header pin 2
+trk("F.Cu", "VCCQ", 0.4, (p3.x, p3.y), (p3.x - 4.0, p3.y), (p3.x - 4.0, j3["2"].y), (j3["2"].x, j3["2"].y))
 
 # ------------------------------------------------------------------ 5 V
 j2 = {q.num: q for q in board.pads if q.ref.startswith("J2.")}
 p20 = esp_pad("20")
 trk("F.Cu", "+5V", 1.0, (j2["1"].x, j2["1"].y), (p20.x, p20.y))
+j3p1 = [q for q in board.pads if q.ref == "J3.1"][0]
+trk("F.Cu", "+5V", 1.0, (j2["1"].x, j2["1"].y), (EXP_X - 3.5, j2["1"].y), (EXP_X - 3.5, j3p1.y), (j3p1.x, j3p1.y))
 
 # ------------------------------------------------------------------ buck-in feed from the VBAT trunk
 j1 = {q.num: q for q in board.pads if q.ref.startswith("J1.")}
@@ -705,7 +705,7 @@ def board_graphics():
     g += gr_text("BATTERY 3S (9-12.6V) + / -", -76, 17.2, 0.9)
     g += gr_text("5V BUCK IN", -70, 29.8, 0.8)
     g += gr_text("5V BUCK OUT", 20, 93.5, 0.8)
-    g += gr_text("IR ARRAY: 1=GND 2=3V3 3..10=OUT1..8", -8, 47.0, 0.8)
+    g += gr_text("EXPANSION HDR J3 (2ND PCB): 1=5V 2=3V3 3=GND 4=BIN1 5=BIN2 6=PWMB 7=AIN2 8=AIN1 9=GND 10=PWMA", -73, 60.0, 0.8)
     g += gr_text("USB", 49, 102.5, 1.0)
     g += gr_text("2 OZ COPPER RECOMMENDED - FILL ZONES (B) BEFORE PLOT", -60, 102.5, 0.8)
     return g

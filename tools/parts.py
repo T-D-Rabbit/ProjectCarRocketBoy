@@ -41,9 +41,11 @@ add("J1", "BUCK_IN", FP_HDR2, "RocketBoy:Conn_01x02",
     [("1", "Pin_1", "VBAT"), ("2", "Pin_2", "GND")], "Input to external 5 V buck module (VBAT, GND)")
 add("J2", "BUCK_OUT", FP_HDR2, "RocketBoy:Conn_01x02",
     [("1", "Pin_1", "+5V"), ("2", "Pin_2", "GND")], "Output of external 5 V buck module (+5V, GND)")
-add("J3", "IR_ARRAY", FP_HDR10, "RocketBoy:Conn_01x10",
-    [("1", "GND", "GND"), ("2", "VCC", "VCCQ")] + [(str(i + 2), "OUT%d" % i, "/IR%d" % i) for i in range(1, 9)],
-    "8-channel IR line array header: 1=GND 2=3V3 3..10=OUT1..OUT8 (verify against your sensor)")
+add("J3", "EXPANSION", FP_HDR10, "RocketBoy:Conn_01x10",
+    [("1", "5V", "+5V"), ("2", "3V3", "VCCQ"), ("3", "GND", "GND"), ("4", "BIN1", "/BIN1"), ("5", "BIN2", "/BIN2"),
+     ("6", "PWMB", "/PWMB"), ("7", "AIN2", "/AIN2"), ("8", "AIN1", "/AIN1"), ("9", "GND", "GND"), ("10", "PWMA", "/PWMA")],
+    "Expansion header for a second PCB / controller: 1=5V 2=3V3 3=GND 4=BIN1 5=BIN2 6=PWMB 7=AIN2 8=AIN1 9=GND 10=PWMA "
+    "(same nets as the ESP32 control pins, remove the ESP32 when the other board drives them)")
 for i in range(1, 5):
     add("H%d" % i, "M3", FP_HOLE, "RocketBoy:MountingHole", [], "M3 mounting hole (chassis pattern)")
 
@@ -53,8 +55,6 @@ ESP_NETS = {
     "38": "VCCQ",           # 3V3
     "21": None,             # was GND but this DevKit pin is CMD (flash) -> now left open
     "24": "/PWMA", "26": "/AIN1", "27": "/AIN2", "28": "/PWMB", "29": "/BIN2", "30": "/BIN1",
-    "36": "/IR1", "35": "/IR2", "34": "/IR3", "33": "/IR4", "32": "/IR5", "31": "/IR6",
-    "12": "/IR8", "11": "/IR7",
 }
 # hole pattern of the chassis STEP: (+-75, +-100)
 HOLES = [(-75.0, -100.0), (75.0, -100.0), (-75.0, 100.0), (75.0, 100.0)]

@@ -26,10 +26,10 @@ MOTOR = dict(
 
 # ---------------------------------------------------------------- mechanical
 MECH = dict(
-    WHEEL_DIAMETER=0.100,         # [ASSUMED] 100 mm rubber wheel, 6 mm bore (fits: shaft length, clamp axis height)
+    WHEEL_DIAMETER=0.110,         # [ASSUMED] 110 mm rubber wheel, 6 mm bore (fits the 34.8 mm of free shaft; gives 25.3 mm under-chassis clearance)
     WHEEL_WIDTH=0.025,            # [ASSUMED]
-    WHEEL_MASS=0.180,             # [ASSUMED] each
-    AXLE_BELOW_CHASSIS=0.0267,    # [PDF] L-clamp: 26.7 mm axis height (clamp fitted on the underside)
+    WHEEL_MASS=0.200,             # [ASSUMED] each
+    AXLE_ABOVE_TOP=0.0267,        # [PDF] L-clamp: motor axis 26.7 mm above the flange face; clamps are bolted to the TOP face of the chassis
     CHASSIS_THICKNESS=0.003,      # [STEP]
     CHASSIS_RADIUS=0.150,         # [STEP]  (300 mm disc)
     CASTER_Y=0.125,               # [STEP]  caster slots at y = +-125 mm
@@ -44,11 +44,11 @@ MASSES = {                        # kg, [ASSUMED] (3 mm acrylic chassis)
     "chassis 300 mm x 3 mm acrylic": 0.25,
     "2 x SG-3851218000-60K motor": 0.60,
     "2 x L clamp (1.5 mm steel)": 0.06,
-    "2 x wheel 100 mm": 0.36,
+    "2 x wheel 110 mm": 0.40,
     "2 x ball caster": 0.10,
     "3S1P Molicel pack + holder": 0.20,
-    "PCB 158x208 + 9 TB6612 + ESP32 + terminals": 0.42,
-    "IR array + wiring + fasteners": 0.13,
+    "PCB 155x208 + 9 TB6612 + ESP32 + terminals + standoffs": 0.45,
+    "buck module + voltage indicator + wiring + fasteners": 0.13,
 }
 
 # ---------------------------------------------------------------- driver (Toshiba TB6612FNG)
@@ -76,14 +76,7 @@ BATTERY = dict(
 OCV = [(0.0, 3.00), (0.05, 3.30), (0.10, 3.45), (0.20, 3.58), (0.30, 3.65), (0.40, 3.70), (0.50, 3.76),
        (0.60, 3.84), (0.70, 3.93), (0.80, 4.02), (0.90, 4.10), (1.0, 4.20)]
 
-# ---------------------------------------------------------------- track / sensor (line follower)
-SENSOR = dict(
-    N=8, PITCH=0.009525,          # [ASSUMED] QTR-8 style array, 9.525 mm pitch
-    AHEAD=0.130,                  # [ASSUMED] array 130 mm ahead of the axle, under the chassis
-    LINE_WIDTH=0.019,             # 19 mm black tape
-    SPOT=0.006,                   # sensor roll-off distance
-)
-
+# ---------------------------------------------------------------- time steps
 SIM = dict(DT=0.0005, DT_CTRL=0.005)
 
 
@@ -95,9 +88,14 @@ def wheel_radius():
     return MECH["WHEEL_DIAMETER"] / 2
 
 
+def chassis_top_height():
+    """Top face of the chassis above the ground (wheel axle height minus the clamp axis height)."""
+    return wheel_radius() - MECH["AXLE_ABOVE_TOP"]
+
+
 def ground_clearance():
-    """Underside of the chassis above ground."""
-    return wheel_radius() - MECH["AXLE_BELOW_CHASSIS"]
+    """Underside of the chassis above ground = room for the battery pack / caster height."""
+    return chassis_top_height() - MECH["CHASSIS_THICKNESS"]
 
 
 def track_width():
@@ -108,7 +106,7 @@ def track_width():
 
 def yaw_inertia():
     """kg m^2 about the vertical axis through the axle centre."""
-    m_motor, m_wheel, m_clamp = 0.60, 0.36, 0.06                       # totals for both sides (see MASSES)
+    m_motor, m_wheel, m_clamp = 0.60, 0.40, 0.06                       # totals for both sides (see MASSES)
     m_body = total_mass() - m_motor - m_wheel - m_clamp
     i_body = 0.5 * m_body * (0.85 * MECH["CHASSIS_RADIUS"]) ** 2         # PCB/battery/chassis spread over the disc
     i_side = m_motor * 0.11 ** 2 + m_wheel * (track_width() / 2) ** 2 + m_clamp * MECH["CLAMP_PLATE_X"] ** 2

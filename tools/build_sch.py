@@ -7,8 +7,8 @@ Fixes applied to the user's schematic
   2. STBY of all 9 TB6612 modules was hard-wired to VCCQ (always enabled) -> three group nets
      STBY1..3 driven by the SPDT enable switches SW1..SW3 (ON = VCCQ, OFF = GND).
   3. ESP32 pin 21 (DevKit "CMD" = flash line) was tied to GND -> pin now left open (no-connect).
-  4. Added bulk caps C1..C3 on VBAT, 5 V buck headers J1/J2, 8-channel IR array header J3 wired to
-     ESP32 ADC1/GPIO pins, chassis mounting holes H1..H4.
+  4. Added bulk caps C1..C3 on VBAT, 5 V buck headers J1/J2, expansion header J3 (control lines +
+     5 V/3V3/GND for a second PCB), chassis mounting holes H1..H4.
   5. BT1 / U11 / U12 footprints -> 5.08 mm screw terminals (the old 1.9 mm pads cannot carry the
      motor current).
 """
@@ -268,20 +268,12 @@ for xv, xs in STBY_X.items():
         new_items.append(["label", Q("STBY%d" % g), ["at", xs, y, 90], eff(1.27, False, "left bottom"),
                           ["uuid", Q(U("stby-%d-%s" % (g, y)))]])
 
-# IR labels on the ESP32 symbol (pin ends taken from the netlist extraction of the original)
-IR_PINS = {  # (x, y) -> net label, left side pins (x=26.67) use angle 180; right side (60.96) use 0
-    (60.96, 92.71): ("IR1", "R"), (60.96, 90.17): ("IR2", "R"), (60.96, 87.63): ("IR3", "R"), (60.96, 85.09): ("IR4", "R"),
-    (26.67, 129.54): ("IR5", "L"), (26.67, 132.08): ("IR6", "L"), (26.67, 125.73): ("IR7", "L"), (26.67, 123.19): ("IR8", "L"),
-}
-for (x, y), (nm, side) in IR_PINS.items():
-    new_items.append(label(nm, x, y, side))
-
 # no-connect on ESP32 pin 21 (CMD)
 new_items.append(["no_connect", ["at", 39.37, 137.16], ["uuid", Q(U("nc-esp-21"))]])
 
 # note text
 new_items.append(["text", Q("FIXES vs original: (1) ESP32 5Vin now +5V from buck module (was raw battery); (2) STBY per group via SW1..SW3 (was always on); "
-                            "(3) ESP32 pin 21 (CMD) no longer tied to GND; (4) VM bulk caps, IR array header, mounting holes, screw terminals added."),
+                            "(3) ESP32 pin 21 (CMD) no longer tied to GND; (4) VM bulk caps, expansion header J3 for a second PCB, mounting holes, screw terminals added."),
                   ["exclude_from_sim", "no"], ["at", 30.0, 160.0, 0], eff(1.5, False, "left bottom"), ["uuid", Q(U("note-fixes"))]])
 
 add_text = "".join("\t" + ser(it, 1) + "\n" for it in new_items)

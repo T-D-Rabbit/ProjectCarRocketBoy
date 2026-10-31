@@ -3,9 +3,9 @@
 ## Model summary
 | item | value | source |
 |---|---|---|
-| total mass | 2.12 kg | assumed part list (params.py) |
-| wheel | 100 mm dia, track width 331 mm | assumed wheel, STEP/PDF geometry |
-| ground clearance under chassis | 23.3 mm (wheel radius - 26.7 mm L-clamp axis height) | PDF |
+| total mass | 2.19 kg | assumed part list (params.py) |
+| wheel | 110 mm dia, track width 331 mm | assumed wheel, STEP/PDF geometry |
+| chassis top face / underside above ground | 28.3 / 25.3 mm (wheel radius - 26.7 mm clamp axis height; clamps on the top face) | PDF |
 | motor no-load speed / rated point | 300 rpm / 220 rpm @ 6 kgf.cm, I0 = 0.5 A | Johnson Motor.pdf |
 | motor winding resistance (fitted) | 1.78 ohm | derived from rated point |
 | motor Ke = Kt | 0.3536 V s/rad | derived |
@@ -16,9 +16,9 @@
 ## S1 - full-duty launch on flat ground
 | groups on | 0-1 m/s [s] | top speed [m/s] | inrush peak per motor [A] | steady current per motor [A] | min battery V | worst module peak [A] (limit 1.2 A cont / 3.2 A pulse) |
 |---|---|---|---|---|---|---|
-| 1 (3 modules/motor) | 0.22 | 1.57 | 6.21 | 0.53 | 11.01 | 2.57 |
-| 2 | 0.21 | 1.58 | 6.50 | 0.53 | 10.95 | 1.35 |
-| 3 (9 modules) | 0.21 | 1.58 | 6.60 | 0.53 | 10.93 | 0.94 |
+| 1 (3 modules/motor) | 0.20 | 1.73 | 6.21 | 0.53 | 11.01 | 2.57 |
+| 2 | 0.19 | 1.73 | 6.50 | 0.53 | 10.95 | 1.35 |
+| 3 (9 modules) | 0.19 | 1.74 | 6.60 | 0.53 | 10.93 | 0.94 |
 
 Per-module current peaks during the launch (channel A / left motor), 1 group enabled: 2.57, 1.79, 1.86 A
 A hard 100 % duty step makes the motor draw its inrush (6.2 A) before back-EMF builds up -> **ramp the PWM (>= 100 ms) in firmware**; the 3 modules of one group then stay inside the 1.2 A continuous rating.
@@ -35,27 +35,27 @@ Stall is the only case that needs more than one group; with 2-3 groups enabled a
 ## S3 - hill climb (duty 0.7 for 6 s, 1 group)
 | slope [deg] | speed [m/s] | motor current [A] | wheel slip |
 |---|---|---|---|
-| 0 | 1.05 | 0.53 | no |
-| 5 | 1.01 | 0.66 | no |
-| 10 | 0.97 | 0.78 | no |
-| 15 | 0.93 | 0.91 | no |
-| 20 | 0.89 | 1.03 | no |
-| 25 | 0.85 | 1.15 | no |
-| 30 | 0.81 | 1.26 | yes |
-| 35 | -0.06 | 1.32 | yes |
+| 0 | 1.16 | 0.53 | no |
+| 5 | 1.11 | 0.68 | no |
+| 10 | 1.06 | 0.82 | no |
+| 15 | 1.01 | 0.96 | no |
+| 20 | 0.96 | 1.10 | no |
+| 25 | 0.91 | 1.24 | no |
+| 30 | 0.86 | 1.36 | yes |
+| 35 | -0.06 | 1.43 | yes |
 
 Tyre limit: the drive wheels (85 % of weight, mu = 0.80) hold up to about 34 deg before slipping.
 
 ## S4 - spin on the spot (duty -0.5 / +0.5)
-Yaw rate 246 deg/s, current 0.54 A per motor, battery 12.16 V.
+Yaw rate 269 deg/s, current 0.54 A per motor, battery 12.15 V.
 
-## S5 - line following lap (8-channel IR array, PID)
-Track: closed loop 7.02 m long, minimum radius 600 mm, 19 mm tape. Sensor array 130 mm ahead of the axle, 9.525 mm pitch.
+## S5 - hard-coded demo route (open loop, no sensors)
+Route: 4 x [drive straight 2.0 s at duty 0.60, pause, spin left 0.377 s at +-0.45 (calibrated so one side+spin cycle turns the robot 90 deg), settle]; duty is slew-limited to 3 /s.
 
-| enabled | finished lap | lap time [s] | avg speed [m/s] | max off-line [mm] | rms off-line [mm] | line lost [s] | peak motor A | mean motor A | min battery V | charge used [mAh] | worst module [A] |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 group | yes | 9.0 | 0.78 | 31.6 | 6.2 | 0.01 | 3.29 | 0.59 | 11.77 | 3.8 | 1.41 |
-| 3 groups | yes | 8.9 | 0.79 | 31.6 | 6.2 | 0.01 | 3.39 | 0.59 | 11.75 | 3.8 | 0.49 |
+| enabled | duration [s] | path length [m] | end position error [mm] | end heading error [deg] | peak motor A | mean motor A (moving) | min battery V | charge used [mAh] | worst module A (1.2 cont / 3.2 pulse) |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 group | 15.2 | 7.87 | 69 | -2.9 | 2.51 | 0.80 | 11.76 | 6.8 | 1.06 |
+| 3 groups | 15.2 | 7.95 | 128 | 5.3 | 2.59 | 0.80 | 11.74 | 6.9 | 0.38 |
 
 ## S6 - PCB copper current check (widths read from RocketBoy.kicad_pcb)
 | path | width [mm] | demand [A] | capacity 1 oz / 2 oz @ +10 C [A] | verdict (2 oz) |

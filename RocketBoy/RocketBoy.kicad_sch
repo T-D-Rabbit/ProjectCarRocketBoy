@@ -9303,7 +9303,7 @@
 				)
 			)
 		)
-		(property "Value" "IR_ARRAY"
+		(property "Value" "EXPANSION"
 			(at 297.18 181.76 0)
 			(effects
 				(font
@@ -9329,7 +9329,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "8-channel IR line array header: 1=GND 2=3V3 3..10=OUT1..OUT8 (verify against your sensor)"
+		(property "Description" "Expansion header for a second PCB / controller: 1=5V 2=3V3 3=GND 4=BIN1 5=BIN2 6=PWMB 7=AIN2 8=AIN1 9=GND 10=PWMA (same nets as the ESP32 control pins, remove the ESP32 when the other board drives them)"
 			(at 294.64 175.26 0)
 			(effects
 				(font
@@ -9378,16 +9378,16 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
+		(lib_id "power:VCC")
 		(at 289.56 175.26 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "f87323dd-8d8a-547a-b993-9bda44bc77e6")
+		(uuid "12f3e5d8-0538-5237-ad76-349e46c09156")
 		(property "Reference" "#PWR049"
-			(at 289.56 181.60999999999999 0)
+			(at 289.56 168.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9395,8 +9395,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
-			(at 282.56 179.07 0)
+		(property "Value" "+5V"
+			(at 282.56 171.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9421,7 +9421,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\""
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
 			(at 289.56 175.26 0)
 			(effects
 				(font
@@ -9431,7 +9431,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "1cbf321b-aa1a-5470-8d67-64d3236a010c")
+			(uuid "822db1b1-843e-5145-a254-e6acfc4dc333")
 		)
 		(instances
 			(project "RocketBoy"
@@ -9507,17 +9507,72 @@
 			)
 		)
 	)
-	(label "IR1"
-		(at 289.56 180.34 180)
-		(effects
-			(font
-				(size 1.27 1.27)
+	(symbol
+		(lib_id "power:GND")
+		(at 289.56 180.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7306180f-7e7f-59d0-a280-09406e24bc32")
+		(property "Reference" "#PWR051"
+			(at 289.56 186.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
-			(justify right bottom)
 		)
-		(uuid "9ef9218c-5085-5952-b104-0922280d2877")
+		(property "Value" "GND"
+			(at 282.56 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 289.56 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 289.56 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\""
+			(at 289.56 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c3b2e39d-b60b-5508-b99f-d309ec1172b8")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR051")
+					(unit 1)
+				)
+			)
+		)
 	)
-	(label "IR2"
+	(label "BIN1"
 		(at 289.56 182.88 180)
 		(effects
 			(font
@@ -9525,9 +9580,9 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "ba7e6f3d-c52a-585d-b362-efe6e5e11fa8")
+		(uuid "a1fb2816-eac1-5957-8c61-1b878f92a212")
 	)
-	(label "IR3"
+	(label "BIN2"
 		(at 289.56 185.42 180)
 		(effects
 			(font
@@ -9535,9 +9590,9 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "da54d009-c124-5ade-8c49-224054eb9768")
+		(uuid "0b5bfc81-4569-578f-b663-cbf02176408c")
 	)
-	(label "IR4"
+	(label "PWMB"
 		(at 289.56 187.96 180)
 		(effects
 			(font
@@ -9545,9 +9600,9 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "98c07fc3-94e5-5f46-9ffb-f2f561e15225")
+		(uuid "927025c1-fa9a-5854-9d59-daacd10daef2")
 	)
-	(label "IR5"
+	(label "AIN2"
 		(at 289.56 190.5 180)
 		(effects
 			(font
@@ -9555,9 +9610,9 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "c8b2413c-af2f-5151-a9ad-b46ffdb54266")
+		(uuid "0d78c949-6436-5a84-8680-885df433c625")
 	)
-	(label "IR6"
+	(label "AIN1"
 		(at 289.56 193.04 180)
 		(effects
 			(font
@@ -9565,19 +9620,74 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "a6007f06-2301-5400-8349-89c772762268")
+		(uuid "4dca2500-9bf3-5f41-b019-daf92b21b7ed")
 	)
-	(label "IR7"
-		(at 289.56 195.58 180)
-		(effects
-			(font
-				(size 1.27 1.27)
+	(symbol
+		(lib_id "power:GND")
+		(at 289.56 195.58 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e80358fc-e55a-5c46-930e-04587ef534f7")
+		(property "Reference" "#PWR052"
+			(at 289.56 201.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
-			(justify right bottom)
 		)
-		(uuid "2bb0319f-ae4a-58a2-89f1-ae8c6222b4b2")
+		(property "Value" "GND"
+			(at 282.56 199.39000000000001 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 289.56 195.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 289.56 195.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\""
+			(at 289.56 195.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "112b4575-af22-5adb-b45b-13bd92e75003")
+		)
+		(instances
+			(project "RocketBoy"
+				(path "/e4b79852-5c3e-4422-b46f-8380f33e21df"
+					(reference "#PWR052")
+					(unit 1)
+				)
+			)
+		)
 	)
-	(label "IR8"
+	(label "PWMA"
 		(at 289.56 198.12 180)
 		(effects
 			(font
@@ -9585,7 +9695,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "6f03e76e-cf19-5d2d-9a78-930a0b59164d")
+		(uuid "88ac996f-1a74-5ff8-8256-577d3a046a5c")
 	)
 	(symbol
 		(lib_id "RocketBoy:MountingHole")
@@ -9987,91 +10097,11 @@
 		)
 		(uuid "cc12fa36-a8e8-5bc1-bf88-cec5de8b940a")
 	)
-	(label "IR1"
-		(at 60.96 92.71 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "a9d29841-3c12-5c1b-bb06-9d1fc4743524")
-	)
-	(label "IR2"
-		(at 60.96 90.17 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "c7af09ab-6252-503f-b24b-0026853088f4")
-	)
-	(label "IR3"
-		(at 60.96 87.63 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "d7a2ee80-a705-51a1-a375-557b2dcb0794")
-	)
-	(label "IR4"
-		(at 60.96 85.09 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "47f53918-5c78-5da0-b0ac-915a9e43761c")
-	)
-	(label "IR5"
-		(at 26.67 129.54 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "163f9791-2958-5492-a54a-b117b2294ce3")
-	)
-	(label "IR6"
-		(at 26.67 132.08 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "3cb34748-b917-5884-8f54-3d86015847dc")
-	)
-	(label "IR7"
-		(at 26.67 125.73 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "cc692c73-ad38-5aa8-8985-05f2c0fb056b")
-	)
-	(label "IR8"
-		(at 26.67 123.19 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "14f2f441-8002-5248-8a45-18e6bb454464")
-	)
 	(no_connect
 		(at 39.37 137.16)
 		(uuid "972236b5-a0c9-5c8f-b6c3-21e615d831e3")
 	)
-	(text "FIXES vs original: (1) ESP32 5Vin now +5V from buck module (was raw battery); (2) STBY per group via SW1..SW3 (was always on); (3) ESP32 pin 21 (CMD) no longer tied to GND; (4) VM bulk caps, IR array header, mounting holes, screw terminals added."
+	(text "FIXES vs original: (1) ESP32 5Vin now +5V from buck module (was raw battery); (2) STBY per group via SW1..SW3 (was always on); (3) ESP32 pin 21 (CMD) no longer tied to GND; (4) VM bulk caps, expansion header J3 for a second PCB, mounting holes, screw terminals added."
 		(exclude_from_sim no)
 		(at 30.0 160.0 0)
 		(effects
